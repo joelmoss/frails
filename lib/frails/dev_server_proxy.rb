@@ -15,7 +15,7 @@ class Frails::DevServerProxy < Rack::Proxy
   end
 
   def perform_request(env)
-    if env['PATH_INFO'].start_with?('/packs') && dev_server.running?
+    if env['PATH_INFO'].start_with?(public_output_path) && dev_server.running?
       host = dev_server.host_with_port
       env['HTTP_HOST'] = env['HTTP_X_FORWARDED_HOST'] = env['HTTP_X_FORWARDED_SERVER'] = host
       env['HTTP_X_FORWARDED_PROTO'] = env['HTTP_X_FORWARDED_SCHEME'] = 'http'
@@ -26,4 +26,10 @@ class Frails::DevServerProxy < Rack::Proxy
       @app.(env)
     end
   end
+
+  private
+
+    def public_output_path
+      Rails.configuration.frails.public_output_path
+    end
 end
