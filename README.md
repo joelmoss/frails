@@ -9,7 +9,7 @@ Frails is a modern asset pipeline for [Rails](https://rubyonrails.org), built on
 
 ## Installation
 
-Frails is designed to work only with Rails, so must be installed in an existing Rails app. It also requires Node.js and a valid `package.json` file in your app root.
+Frails is designed to work only within a Rails application, so must be installed in an existing Rails app. It also requires Node.js and a valid `package.json` file in your app root.
 
 Add this line to your application's Gemfile:
 
@@ -27,13 +27,35 @@ Then run the installer:
 
 ## Usage
 
-Frails tries to keep as close as possible to a standard Webpack setup, so you can run webpack and webpack-dev-server in the usual way. For example, using yarn:
+Frails tries to keep as close as possible to a standard Webpack setup, so you can run webpack and webpack-dev-server in the usual way. For example, using yarn you can build:
 
     $ yarn webpack
 
-or
+or run the dev server:
 
     $ yarn webpack-dev-server
+
+Rails will proxy requests to any running Webpack dev server
+
+## Configuration
+
+Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just add any of the following config options by adding to `config/application.rb` or and/any of the environment initialzers at `config/environment`.
+
+For example:
+
+```ruby
+Rails.application.configure do
+  config.frails.dev_server_port = 3035
+end
+```
+
+Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.
+
+### Options
+
+  - `dev_server_port` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
+  - `dev_server_host` - The HTTP host that Rails will proxy asset requests to. (default: `localhost`)
+  - `public_output_path` - The public path where Webpack will output its build to, relative to your app's `/public` directory. (default: `/assets`)
 
 ## Development
 
