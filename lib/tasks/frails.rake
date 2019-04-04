@@ -5,7 +5,7 @@ bin_path = ENV['BUNDLE_BIN'] || './bin'
 
 namespace :frails do
   desc 'Install Frails in this application'
-  task install: %i[check_node check_yarn] do
+  task :install do
     exec "#{RbConfig.ruby} #{bin_path}/rails app:template LOCATION=#{install_template_path}"
   end
 end
