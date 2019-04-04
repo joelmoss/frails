@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Frails::Manifest
   class MissingEntryError < StandardError; end
 

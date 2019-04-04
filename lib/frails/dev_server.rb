@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Frails::DevServer
   # rubocop:disable Style/RescueStandardError
   def running?

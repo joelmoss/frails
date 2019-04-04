@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rack/proxy'
 
 class Frails::DevServerProxy < Rack::Proxy
@@ -23,7 +25,7 @@ class Frails::DevServerProxy < Rack::Proxy
 
       super(env)
     else
-      @app.(env)
+      @app.call(env)
     end
   end
 

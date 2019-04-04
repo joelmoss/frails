@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Frails::Helper
   def frails_instance
     Frails.instance

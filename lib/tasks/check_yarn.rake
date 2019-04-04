@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :frails do
   desc 'Verifies if Yarn is installed'
   task :check_yarn do
@@ -12,14 +14,14 @@ namespace :frails do
       version = Gem::Version.new(yarn_version)
 
       unless requirement.satisfied_by?(version)
-        $stderr.puts "Frails requires Yarn #{requirement} and you are using #{version}"
-        $stderr.puts "Please upgrade Yarn https://yarnpkg.com/lang/en/docs/install/"
-        $stderr.puts "Exiting!" && exit!
+        warn "Frails requires Yarn #{requirement} and you are using #{version}"
+        warn 'Please upgrade Yarn https://yarnpkg.com/lang/en/docs/install/'
+        warn 'Exiting!' && exit!
       end
     rescue Errno::ENOENT
-      $stderr.puts "Yarn is not installed, or a Yarn version is not specified in your package.json."
-      $stderr.puts "You can download Yarn from https://yarnpkg.com/lang/en/docs/install/"
-      $stderr.puts "Exiting!" && exit!
+      warn 'Yarn is not installed, or a Yarn version is not specified in your package.json.'
+      warn 'You can download Yarn from https://yarnpkg.com/lang/en/docs/install/'
+      warn 'Exiting!' && exit!
     end
   end
 end

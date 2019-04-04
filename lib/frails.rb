@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'frails/version'
 require 'active_support/core_ext/module'
 require 'active_support/core_ext/module/attribute_accessors'
 
 module Frails
-  extend self
+  module_function
 
   def instance
     @instance ||= Frails::Instance.new
