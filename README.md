@@ -9,6 +9,8 @@ Frails is a modern asset pipeline for [Rails](https://rubyonrails.org), built on
 
 ## Installation
 
+Frails is designed to work only with Rails, so must be installed in an existing Rails app. It also requires Node.js and a valid `package.json` file in your app root.
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -19,13 +21,19 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Then run the installer:
 
-    $ gem install frails
+    $ bin/rails frails:install
 
 ## Usage
 
-TODO: Write usage instructions here
+Frails tries to keep as close as possible to a standard Webpack setup, so you can run webpack and webpack-dev-server in the usual way. For example, using yarn:
+
+    $ yarn webpack
+
+or
+
+    $ yarn webpack-dev-server
 
 ## Development
 
