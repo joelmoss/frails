@@ -2,6 +2,8 @@ AllCops:
   TargetRubyVersion: 2.4
 Style/Documentation:
   Enabled: false
+Style/ModuleFunction:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Metrics/LineLength:

@@ -5,7 +5,11 @@ require 'active_support/core_ext/module'
 require 'active_support/core_ext/module/attribute_accessors'
 
 module Frails
-  module_function
+  extend self
+
+  def instance=(instance)
+    @instance = instance
+  end
 
   def instance
     @instance ||= Frails::Instance.new
@@ -17,23 +21,6 @@ module Frails
     yield
   ensure
     ENV['NODE_ENV'] = original
-  end
-
-  def yarn_integrity_check!
-    output = `yarn check --integrity && yarn check --verify-tree 2>&1`
-
-    return if $CHILD_STATUS.success?
-
-    require 'tty-prompt'
-    prompt = TTY::Prompt.new
-
-    prompt.error '=> Frails <============================='
-    prompt.error 'Your Yarn packages are out of date!'
-    prompt.error 'Please run `yarn install --check-files` to update.'
-    prompt.error '========================================'
-    prompt.error output
-
-    exit(1)
   end
 
   delegate :manifest, :dev_server, to: :instance
