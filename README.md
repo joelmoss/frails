@@ -4,8 +4,9 @@ Frails is a modern asset pipeline for [Rails](https://rubyonrails.org), built on
 
   - Follow convention over configuration as much as possible.
   - Tight integration with Rails, without tying you up in knots.
+  - Un-opinionated webpack configuration - batteries not included!
   - Full Webpack control without fighting with the likes of Webpacker.
-  - Embrace modern front end practises.
+  - Embrace modern front end practices.
 
 ## Installation
 
@@ -35,7 +36,72 @@ or run the dev server:
 
     $ yarn webpack-dev-server
 
-Rails will proxy requests to any running Webpack dev server
+Rails will proxy requests to any running Webpack dev server.
+
+### Compilation for Production
+
+To take advantage of Rails asset host functionality, we recommend that you compile your assets using the provided Rake task:
+
+    $ rails frails:compile
+
+This will ensure that you assets respect the `asset_host` configuration.
+
+### Rails Helpers
+
+#### `javascript_pack_tag`
+
+Just like `javascript_include_tag`, but will use your webpack assets.
+
+```ruby
+javascript_include_tag 'application'
+```
+
+#### `stylesheet_pack_tag`
+
+Just like `stylesheet_link_tag`, but will use your webpack assets.
+
+```ruby
+stylesheet_pack_tag 'application'
+```
+
+#### `image_pack_tag`
+
+Just like `image_tag`, but will use your webpack assets.
+
+```ruby
+image_pack_tag 'logo.png'
+```
+
+### Side Loaded Assets
+
+Frails has the ability to automatically include your Javascript and CSS based on the current layout
+and/or view.
+
+As an example, given a view at `/app/views/pages/home.html.erb`, we can create
+`/app/views/pages/home.css` and/or `/app/views/pages/home.js`. These side-loaded assets will then be
+included automatically in the page.
+
+Make sure you include the `side_load_assets` helper into the top of each layout, along with
+`<%= yield :side_loaded_css %>` in your `<head>`, and `<%= yield :side_loaded_js %>` at the bottom:
+
+```html
+<!DOCTYPE html>
+<html>
+  <%- side_load_assets -%>
+  <head>
+    <title>My App</title>
+    <%= csrf_meta_tags %>
+    <%= yield :side_loaded_css %>
+  </head>
+  <body>
+    <%= yield %>
+
+    <%= yield :side_loaded_js %>
+  </body>
+</html>
+```
+
+CSS will be included in-line for faster renders.
 
 ## Configuration
 

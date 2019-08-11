@@ -38,12 +38,12 @@ module Frails::Helper
   def side_load_assets(layout: nil, manifest: nil)
     # Layout
     path = "views/layouts/#{layout || layout_name}"
-    content_for :foot, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
+    content_for :side_loaded_js, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
     render_css_asset path, manifest: manifest
 
     # View
     path = "views/#{rendered_view_path}"
-    content_for :foot, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
+    content_for :side_loaded_js, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
     render_css_asset path, manifest: manifest
   end
 
@@ -53,7 +53,7 @@ module Frails::Helper
     # inserting the content in to the page head (inline styles).
     def render_css_asset(asset_path, manifest: nil)
       manifest_manager[manifest].read(asset_path, :stylesheet) do |path, source|
-        content_for :page_styles, content_tag(:style, source, { data: { href: path } }, false)
+        content_for :side_loaded_css, content_tag(:style, source, { data: { href: path } }, false)
       end
     end
 
