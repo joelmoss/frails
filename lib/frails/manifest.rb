@@ -1,7 +1,18 @@
 # frozen_string_literal: true
 
 class Frails::Manifest
+  class MissingManifestError < StandardError; end
   class MissingEntryError < StandardError; end
+
+  attr_reader :manifest_path
+
+  def initialize(path)
+    @manifest_path = Rails.public_path.join(Frails.public_output_path, path)
+
+    return if @manifest_path.exist?
+
+    raise Frails::Manifest::MissingManifestError, "Frails can't find manifest #{manifest_path}"
+  end
 
   def refresh
     @data = load
@@ -11,7 +22,7 @@ class Frails::Manifest
   # returns nil.
   #
   # Example:
-  #   Frails.manifest.lookup('calendar.js') # => "/packs/calendar-1016838bab065ae1e122.js"
+  #   Frails.manifest.lookup('calendar.js') # => "/assets/calendar-1016838bab065ae1e122.js"
   def lookup(name, type: nil)
     # When using SplitChunks or RuntimeChunks the manifest hash will contain an extra object called
     # "entrypoints". When the entrypoints key is not present in the manifest, or the name is not
@@ -32,11 +43,35 @@ class Frails::Manifest
     lookup(name, type: type) || handle_missing_entry(name)
   end
 
-  def manifest_path
-    @manifest_path ||= Rails.root.join('public', 'packs', 'manifest.json')
+  def read!(name, type)
+    sources = *lookup!(name, type: type)
+    sources.map do |path|
+      yield path, read_source(path)
+    end
+  end
+
+  def read(name, type)
+    sources = *lookup(name, type: type)
+    sources.map do |path|
+      yield path, read_source(path)
+    end
   end
 
   private
+
+    def read_source(path)
+      unless Frails.dev_server.running?
+        host = ActionController::Base.helpers.compute_asset_host
+        new_path = host && path.start_with?(host) ? path.delete_prefix(host) : path
+        return Rails.public_path.join(new_path.gsub(%r{^\/}, '')).read
+      end
+
+      # Remove the protocol and host from the asset path. Sometimes webpack includes this,
+      # sometimes it does not.
+      path.slice! "http://#{Frails.dev_server.host_with_port}"
+
+      open("http://#{Frails.dev_server.host_with_port}#{path}").read
+    end
 
     def load
       manifest_path.exist? ? JSON.parse(manifest_path.read) : {}

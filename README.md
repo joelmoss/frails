@@ -39,23 +39,14 @@ Rails will proxy requests to any running Webpack dev server
 
 ## Configuration
 
-Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just add any of the following config options by adding to `config/application.rb` or and/any of the environment initialzers at `config/environment`.
-
-For example:
-
-```ruby
-Rails.application.configure do
-  config.frails.dev_server_port = 3035
-end
-```
-
-Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.
+Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just set any of the following environment variables. Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.
 
 ### Options
 
-  - `dev_server_port` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
-  - `dev_server_host` - The HTTP host that Rails will proxy asset requests to. (default: `localhost`)
-  - `public_output_path` - The public path where Webpack will output its build to, relative to your app's `/public` directory. (default: `/assets`)
+  - `ENV['FRAILS_DEV_SERVER_PORT']` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
+  - `ENV['FRAILS_DEV_SERVER_HOST']` - The HTTP host that Rails will proxy asset requests to. (default: `localhost`)
+  - `ENV['FRAILS_PUBLIC_OUTPUT_PATH']` - The public path where Webpack will output its build to, relative to your app's `/public` directory. (default: `assets`)
+  - `ENV['FRAILS_MANIFEST_PATH']` - Path to the produced Webpack manifest file, relative to the `public_output_path`. (default: `manifest.json`)
 
 ## Development
 

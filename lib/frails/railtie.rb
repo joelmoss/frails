@@ -6,17 +6,54 @@ require 'frails/helper'
 require 'frails/dev_server_proxy'
 
 class Frails::Engine < ::Rails::Engine
-  # Allows Webpacker config values to be set via Rails env config files
-  config.frails = ActiveSupport::OrderedOptions.new
-
-  initializer 'frails.default_config' do |app|
-    assign_config app, :public_output_path, '/assets'
-    assign_config app, :dev_server_port, 8080
-    assign_config app, :dev_server_host, 'localhost'
-  end
-
   initializer 'frails.proxy' do |app|
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
+  end
+
+  # ================================
+  # Check Yarn Integrity Initializer
+  # ================================
+  #
+  # development (on by default):
+  #
+  #    to turn off:
+  #     - edit config/environments/development.rb
+  #     - add `config.webpacker.check_yarn_integrity = false`
+  #
+  # production (off by default):
+  #
+  #    to turn on:
+  #     - edit config/environments/production.rb
+  #     - add `config.webpacker.check_yarn_integrity = true`
+  initializer 'frails.yarn_check' do
+    if File.exist?('yarn.lock')
+      output = `yarn check --integrity && yarn check --verify-tree 2>&1`
+
+      unless $?.success?
+        warn "\n\n"
+        warn '========================================'
+        warn '  Your Yarn packages are out of date!'
+        warn '  Please run `yarn install --check-files` to update.'
+        warn '========================================'
+        warn "\n\n"
+        warn output
+        warn "\n\n"
+
+        exit(1)
+      end
+    end
+  end
+
+  initializer 'frails.view_context' do
+    ActiveSupport.on_load :action_controller do
+      require 'frails/monkey/action_controller/view_context'
+      ActionController::Base.send :prepend, Frails::Monkey::ActionController::ViewContext
+    end
+
+    ActiveSupport.on_load :action_view do
+      require 'frails/monkey/action_view/template_renderer'
+      ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
+    end
   end
 
   initializer 'frails.helper' do
@@ -28,8 +65,4 @@ class Frails::Engine < ::Rails::Engine
       include Frails::Helper
     end
   end
-end
-
-def assign_config(app, name, default_value)
-  app.config.frails[name] = app.config.frails.fetch(name, default_value)
 end
