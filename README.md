@@ -38,6 +38,25 @@ or run the dev server:
 
 Rails will proxy requests to any running Webpack dev server.
 
+### Webpack Configuration
+
+Frails requires the user of the `webpack-assets-manifest` webpack plugin in order for its helpers to
+work correctly. This is because it needs to be able lookup the real paths of assets, and the
+manifest file provides that data.
+
+```javascript
+module.exports = {
+  ...
+  plugins: [
+    new WebpackAssetsManifest({
+      writeToDisk: true,
+      entrypoints: true,
+      publicPath: true
+    })
+  ]
+}
+```
+
 ### Compilation for Production
 
 To take advantage of Rails asset host functionality, we recommend that you compile your assets using the provided Rake task:
@@ -80,6 +99,13 @@ and/or view.
 As an example, given a view at `/app/views/pages/home.html.erb`, we can create
 `/app/views/pages/home.css` and/or `/app/views/pages/home.js`. These side-loaded assets will then be
 included automatically in the page.
+
+```yml
+app/views/pages:
+  ├── home.html.erb
+  ├── home.css
+  ├── home.js
+```
 
 Make sure you include the `side_load_assets` helper into the top of each layout, along with
 `<%= yield :side_loaded_css %>` in your `<head>`, and `<%= yield :side_loaded_js %>` at the bottom:

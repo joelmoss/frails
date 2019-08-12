@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Joel Moss']
   spec.email         = ['joel@developwithstyle.com']
 
-  spec.summary       = 'A Modern Front End on Rails and Webpack'
+  spec.summary       = 'A Modern [F]ront End on [Rails] and Webpack'
   spec.homepage      = 'https://github.com/joelmoss/frails'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
