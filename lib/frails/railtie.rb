@@ -52,7 +52,7 @@ class Frails::Engine < ::Rails::Engine
 
     ActiveSupport.on_load :action_view do
       require 'frails/monkey/action_view/template_renderer'
-      ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
+      ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
     end
   end
 

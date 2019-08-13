@@ -18,7 +18,11 @@ module Frails
         end
 
         def layout_name
-          send(:_layout, ['null']) || 'application'
+          if Rails::VERSION::MAJOR >= 6
+            send(:_layout, lookup_context, ['null']) || 'application'
+          else
+            send(:_layout, ['null']) || 'application'
+          end
         end
       end
     end
