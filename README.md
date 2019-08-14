@@ -129,6 +129,8 @@ Make sure you include the `side_load_assets` helper into the top of each layout,
 
 CSS will be included in-line for faster renders.
 
+Check out `./package/side_load.js` for the webpack config needed to make this work.
+
 ## Configuration
 
 Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just set any of the following environment variables. Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.

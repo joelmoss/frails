@@ -26,5 +26,6 @@ module.exports = {
   devServerPort: process.env.FRAILS_DEV_SERVER_PORT || '8080',
   devServerHost: process.env.FRAILS_DEV_SERVER_HOST || 'localhost',
 
-  getPublicPathWithAssetHost
+  getPublicPathWithAssetHost,
+  sideLoadEntry: require('./package/side_load')
 }
