@@ -32,4 +32,5 @@ end
 require 'frails/dev_server_proxy'
 require 'frails/manifest_manager'
 require 'frails/dev_server'
+require 'frails/component'
 require 'frails/railtie'

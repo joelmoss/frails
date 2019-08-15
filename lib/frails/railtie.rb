@@ -44,15 +44,20 @@ class Frails::Engine < ::Rails::Engine
     end
   end
 
-  initializer 'frails.view_context' do
+  initializer 'frails.view_context' do |conf|
     ActiveSupport.on_load :action_controller do
       require 'frails/monkey/action_controller/view_context'
+
       ActionController::Base.send :prepend, Frails::Monkey::ActionController::ViewContext
+      ActionController::Base.prepend_view_path Rails.root.join('app', 'components')
     end
 
     ActiveSupport.on_load :action_view do
       require 'frails/monkey/action_view/template_renderer'
+      require 'frails/monkey/action_view/component_renderer'
+
       ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
+      ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::ComponentRenderer
     end
   end
 

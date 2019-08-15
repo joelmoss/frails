@@ -26,6 +26,10 @@ module.exports = {
   devServerPort: process.env.FRAILS_DEV_SERVER_PORT || '8080',
   devServerHost: process.env.FRAILS_DEV_SERVER_HOST || 'localhost',
 
+  // The local ident name required for loading component styles.
+  cssLocalIdentName: process.env.NODE_ENV == 'development' ? '[path][name]__[local]___[md5:hash:hex:6]' : '[local]-[md5:hash:hex:6]',
+
   getPublicPathWithAssetHost,
-  sideLoadEntry: require('./package/side_load')
+  sideLoadEntry: require('./package/side_load'),
+  components: require('./package/components')
 }
