@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open-uri'
+
 class Frails::Manifest
   class MissingManifestError < StandardError; end
   class MissingEntryError < StandardError; end
