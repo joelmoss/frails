@@ -135,6 +135,12 @@ Check out `./package/side_load.js` for the webpack config needed to make this wo
 
 Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just set any of the following environment variables. Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.
 
+Be sure to install dotenv-flow package and add that to the very top of your primary webpack config:
+
+```javascript
+require('dotenv-flow').config()
+```
+
 ### Options
 
   - `ENV['FRAILS_DEV_SERVER_PORT']` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
