@@ -17,7 +17,7 @@ class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
       end
     end
 
-    apply_styles((Rails::VERSION::MAJOR >= 6 ? result.body : result) || nil)
+    apply_styles(result.try(:body) || result || nil)
   end
 
   private

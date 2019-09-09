@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'open3'
+
 install_template_path = File.expand_path('../install/template.rb', __dir__).freeze
 bin_path = ENV['BUNDLE_BIN'] || './bin'
 
@@ -13,6 +15,7 @@ namespace :frails do
   task compile: :environment do
     puts 'Compiling Webpack...'
 
+    ENV['RAILS_ENV'] ||= 'development'
     env = {
       'RAILS_ASSET_HOST' => ActionController::Base.helpers.compute_asset_host,
       'RAILS_RELATIVE_URL_ROOT' => ActionController::Base.relative_url_root
