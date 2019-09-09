@@ -68,11 +68,11 @@ class Frails::Manifest
         return Rails.public_path.join(new_path.gsub(%r{^\/}, '')).read
       end
 
-      # Remove the protocol and host from the asset path. Sometimes webpack includes this,
-      # sometimes it does not.
-      path.slice! "http://#{Frails.dev_server.host_with_port}"
-
-      open("http://#{Frails.dev_server.host_with_port}#{path}").read
+      begin
+        open("http://#{Frails.dev_server.host_with_port}#{path}").read
+      rescue OpenURI::HTTPError => e
+        handle_missing_entry path
+      end
     end
 
     def load
