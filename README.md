@@ -38,6 +38,10 @@ or run the dev server:
 
 Rails will proxy requests to any running Webpack dev server.
 
+### Using in Tests
+
+Please note that Frails is not designed or intended to be run in your test environment. This would require a full webpack compile on every test run, which would slow your tests down hugely! Instead, I recommend that you test your Javascript independently using the likes of Jest or some other good Javascript test runner.
+
 ### Webpack Configuration
 
 Frails requires the user of the `webpack-assets-manifest` webpack plugin in order for its helpers to

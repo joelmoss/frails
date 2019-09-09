@@ -35,6 +35,8 @@ module Frails::Helper
   end
 
   def javascript_pack_tag(*names, **options)
+    return if Rails.env.test?
+
     @included_javascripts ||= []
 
     soft_lookup = options.delete(:soft_lookup) { false }
@@ -52,6 +54,8 @@ module Frails::Helper
   end
 
   def stylesheet_pack_tag(*names, **options)
+    return if Rails.env.test?
+
     soft_lookup = options.delete(:soft_lookup) { false }
     sources = sources_from_manifest_entries(names, :stylesheet, manifest: options.delete(:manifest),
                                                                 soft_lookup: soft_lookup)
@@ -61,6 +65,8 @@ module Frails::Helper
   end
 
   def image_pack_tag(name, **options)
+    return if Rails.env.test?
+
     image_tag(pack_path("images/#{name}", manifest: options.delete(:manifest)), **options)
   end
 
@@ -69,6 +75,8 @@ module Frails::Helper
   end
 
   def side_load_assets(layout: nil, manifest: nil)
+    return if Rails.env.test?
+
     # Layout
     path = "views/layouts/#{layout || layout_name}"
     content_for :side_loaded_js, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
