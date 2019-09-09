@@ -35,7 +35,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'rack-proxy', '>= 0.6.5'
-  spec.add_dependency 'railties',   '>= 5.2'
+  spec.add_dependency 'railties',   '>= 6.0'
+  spec.add_dependency 'nokogiri',   '>= 1.10.4'
 
   spec.add_development_dependency 'bundler', '~> 2.0'
   spec.add_development_dependency 'm', '~> 1.5.0'
