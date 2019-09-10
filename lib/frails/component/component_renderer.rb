@@ -17,7 +17,7 @@ class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
       end
     end
 
-    apply_styles(result.try(:body) || result || nil)
+    apply_styles((result.respond_to?(:body) ? result.body : result) || nil)
   end
 
   private
