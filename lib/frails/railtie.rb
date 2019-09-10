@@ -10,23 +10,8 @@ class Frails::Engine < ::Rails::Engine
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
   end
 
-  # ================================
-  # Check Yarn Integrity Initializer
-  # ================================
-  #
-  # development (on by default):
-  #
-  #    to turn off:
-  #     - edit config/environments/development.rb
-  #     - add `config.webpacker.check_yarn_integrity = false`
-  #
-  # production (off by default):
-  #
-  #    to turn on:
-  #     - edit config/environments/production.rb
-  #     - add `config.webpacker.check_yarn_integrity = true`
   initializer 'frails.yarn_check' do
-    if File.exist?('yarn.lock')
+    if Rails.env.development? && File.exist?('yarn.lock')
       output = `yarn check --integrity && yarn check --verify-tree 2>&1`
 
       unless $?.success?
