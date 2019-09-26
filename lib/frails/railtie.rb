@@ -29,11 +29,8 @@ class Frails::Engine < ::Rails::Engine
     end
   end
 
-  initializer 'frails.view_context' do |_conf|
+  initializer 'frails.rendering' do |_conf|
     ActiveSupport.on_load :action_controller do
-      require 'frails/monkey/action_controller/view_context'
-
-      ActionController::Base.send :prepend, Frails::Monkey::ActionController::ViewContext
       ActionController::Base.prepend_view_path Rails.root.join('app', 'components')
     end
 
