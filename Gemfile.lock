@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    frails (0.2.0)
+    frails (0.3.0)
       nokogiri (>= 1.10.4)
       rack-proxy (>= 0.6.5)
       railties (>= 6.0)

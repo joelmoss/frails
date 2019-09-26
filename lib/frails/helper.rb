@@ -5,12 +5,10 @@ module Frails::Helper
     case options
     when Hash
       if Rails::VERSION::MAJOR >= 6
-        in_rendering_context(options) do |renderer|
+        in_rendering_context(options) do |_renderer|
           if block_given?
             # MONKEY PATCH! simply renders the component with the given block.
-            if options.key?(:component)
-              return view_renderer.render_component(self, options, &block)
-            end
+            return view_renderer.render_component(self, options, &block) if options.key?(:component)
 
             view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
           else
@@ -20,9 +18,7 @@ module Frails::Helper
       else
         if block_given?
           # MONKEY PATCH! simply renders the component with the given block.
-          if options.key?(:component)
-            return view_renderer.render_component(self, options, &block)
-          end
+          return view_renderer.render_component(self, options, &block) if options.key?(:component)
 
           view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
         else
@@ -74,29 +70,7 @@ module Frails::Helper
     manifest_manager[manifest].lookup! name, type: type
   end
 
-  def side_load_assets(layout: nil, manifest: nil)
-    return if Rails.env.test?
-
-    # Layout
-    path = "views/layouts/#{layout || layout_name}"
-    content_for :side_loaded_js, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
-    render_css_asset path, manifest: manifest
-
-    # View
-    path = "views/#{rendered_view_path}"
-    content_for :side_loaded_js, javascript_pack_tag(path, manifest: manifest, soft_lookup: true)
-    render_css_asset path, manifest: manifest
-  end
-
   private
-
-    # Render CSS assets for the given `asset_path`, by reading the content of each asset and
-    # inserting the content in to the page head (inline styles).
-    def render_css_asset(asset_path, manifest: nil)
-      manifest_manager[manifest].read(asset_path, :stylesheet) do |path, source|
-        content_for :side_loaded_css, content_tag(:style, source, { data: { href: path } }, false)
-      end
-    end
 
     def sources_from_manifest_entries(names, type, manifest: nil, soft_lookup: false)
       names.map do |name|

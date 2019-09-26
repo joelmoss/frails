@@ -14,7 +14,7 @@ class Frails::Engine < ::Rails::Engine
     if Rails.env.development? && File.exist?('yarn.lock')
       output = `yarn check --integrity && yarn check --verify-tree 2>&1`
 
-      unless $?.success?
+      unless $CHILD_STATUS.success?
         warn "\n\n"
         warn '========================================'
         warn '  Your Yarn packages are out of date!'
@@ -29,7 +29,7 @@ class Frails::Engine < ::Rails::Engine
     end
   end
 
-  initializer 'frails.view_context' do |conf|
+  initializer 'frails.view_context' do |_conf|
     ActiveSupport.on_load :action_controller do
       require 'frails/monkey/action_controller/view_context'
 
@@ -38,11 +38,15 @@ class Frails::Engine < ::Rails::Engine
     end
 
     ActiveSupport.on_load :action_view do
+      require 'frails/monkey/action_view/abstract_renderer'
       require 'frails/monkey/action_view/template_renderer'
-      require 'frails/monkey/action_view/component_renderer'
+      require 'frails/monkey/action_view/partial_renderer'
+      require 'frails/monkey/action_view/renderer'
 
+      ActionView::AbstractRenderer.send :prepend, Frails::Monkey::ActionView::AbstractRenderer
       ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
-      ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::ComponentRenderer
+      ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::PartialRenderer
+      ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::Renderer
     end
   end
 

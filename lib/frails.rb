@@ -29,6 +29,7 @@ module Frails
   end
 end
 
+require 'frails/log_subscriber'
 require 'frails/dev_server_proxy'
 require 'frails/manifest_manager'
 require 'frails/dev_server'

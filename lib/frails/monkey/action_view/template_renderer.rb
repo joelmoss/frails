@@ -4,36 +4,17 @@ module Frails
   module Monkey
     module ActionView
       module TemplateRenderer
-        if Rails::VERSION::MAJOR >= 6
-
-          # Defines 'active_template` for use in determining the `active_template` that is rendered.
-          def render_template(view, template, layout_name, locals)
-            return super if !view.controller || !view.controller.respond_to?(:active_template)
-
-            view.controller.active_template = template if view.controller.active_template.nil?
-
-            result = super
-
-            view.controller.active_template = nil if view.controller
-
-            result
+        def render_template(view, template, layout_name, locals)
+          # Side load layout assets - if any.
+          if layout_name
+            layout = find_layout(layout_name, locals.keys, [formats.first])
+            side_load_assets view, layout
           end
 
-        else
+          # Side load view assets - if any.
+          side_load_assets view, template
 
-          # Defines 'active_template` for use in determining the `active_template` that is rendered.
-          def render_template(template, layout_name = nil, locals = {})
-            return super if !@view.controller || !@view.controller.respond_to?(:active_template)
-
-            @view.controller.active_template = template if @view.controller.active_template.nil?
-
-            result = super
-
-            @view.controller.active_template = nil if @view.controller
-
-            result
-          end
-
+          super
         end
       end
     end
