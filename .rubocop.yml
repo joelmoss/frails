@@ -9,6 +9,4 @@ Style/ClassAndModuleChildren:
 Metrics/LineLength:
   Max: 100
 Layout/IndentationConsistency:
-  EnforcedStyle: rails
-  SupportedStyles:
-    - rails
+  EnforcedStyle: indented_internal_methods

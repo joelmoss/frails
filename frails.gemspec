@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-lib = File.expand_path('lib', __dir__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+$LOAD_PATH.push File.expand_path('lib', __dir__)
+
 require 'frails/version'
 
 Gem::Specification.new do |spec|
@@ -34,12 +34,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'rack-proxy', '>= 0.6.5'
-  spec.add_dependency 'railties',   '>= 6.0'
   spec.add_dependency 'nokogiri',   '>= 1.10.4'
-
-  spec.add_development_dependency 'bundler', '~> 2.0'
-  spec.add_development_dependency 'm', '~> 1.5.0'
-  spec.add_development_dependency 'minitest', '~> 5.0'
-  spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_dependency 'rack-proxy', '>= 0.6.5'
+  spec.add_dependency 'rails',      '>= 6.0'
 end

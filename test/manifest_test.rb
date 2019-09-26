@@ -4,7 +4,7 @@ require 'test_helper'
 
 class ManifestTest < Minitest::Test
   def test_lookup_exception!
-    path = File.join(File.dirname(__FILE__), 'test_app/public/assets', 'manifest.json')
+    path = File.join(File.dirname(__FILE__), 'dummy/public/assets', 'manifest.json')
     manifest_path = File.expand_path(path.to_s)
     asset_file = 'calendar.js'
 

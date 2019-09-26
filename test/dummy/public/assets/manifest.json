@@ -4,6 +4,12 @@
   "bootstrap.js": "/assets/bootstrap-300631c4f0e0f9c865bc.js",
   "application.js": "/assets/application-k344a6d59eef8632c9d1.js",
   "images/logo.png": "/assets/images/logo-k344a6d59eef8632c9d1.png",
+  "views/pages/_header.css": "/assets/views/pages/_header-26f6510bf15bc4da.css",
+  "views/pages/_header.js": "/assets/views/pages/_header-26f6510bf15bc4da.js",
+  "views/pages/home.css": "/assets/views/pages/home-26f6510bf15bc4da.css",
+  "views/pages/home.js": "/assets/views/pages/home-26f6510bf15bc4da.js",
+  "views/layouts/application.css": "/assets/views/layouts/application-26f6510bf15bc4da.css",
+  "views/layouts/application.js": "/assets/views/layouts/application-26f6510bf15bc4da.js",
   "entrypoints": {
     "application": {
       "js": [
