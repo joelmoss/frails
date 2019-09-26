@@ -18,7 +18,7 @@ module Frails
         def side_load_javascript(path, view, payload)
           # Render the JS - if any.
           view.content_for :side_loaded_js do
-            view.javascript_pack_tag("#{path}.js", soft_lookup: true).tap do |tag|
+            view.javascript_pack_tag(path, soft_lookup: true).tap do |tag|
               !tag.nil? && (payload[:asset_types] << :js)
             end
           end
@@ -31,7 +31,7 @@ module Frails
           return if loaded.include?(path)
 
           # Render the CSS inline - if any.
-          Frails.manifest.read("#{path}.css", :stylesheet) do |href, src|
+          Frails.manifest.read(path, :stylesheet) do |href, src|
             view.content_for :side_loaded_css do
               view.content_tag :style, src, { data: { href: href } }, false
             end
