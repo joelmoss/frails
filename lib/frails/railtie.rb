@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails/railtie'
-
+require 'English'
 require 'frails/helper'
 require 'frails/dev_server_proxy'
 
@@ -14,7 +14,7 @@ class Frails::Engine < ::Rails::Engine
     if Rails.env.development? && File.exist?('yarn.lock')
       output = `yarn check --integrity && yarn check --verify-tree 2>&1`
 
-      unless $CHILD_STATUS.nil?
+      unless $CHILD_STATUS.success?
         warn "\n\n"
         warn '========================================'
         warn '  Your Yarn packages are out of date!'
