@@ -14,7 +14,7 @@ class Frails::Engine < ::Rails::Engine
     if Rails.env.development? && File.exist?('yarn.lock')
       output = `yarn check --integrity && yarn check --verify-tree 2>&1`
 
-      unless $CHILD_STATUS.success?
+      unless $CHILD_STATUS.nil?
         warn "\n\n"
         warn '========================================'
         warn '  Your Yarn packages are out of date!'
