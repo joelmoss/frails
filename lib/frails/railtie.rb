@@ -30,20 +30,16 @@ class Frails::Engine < ::Rails::Engine
   end
 
   initializer 'frails.rendering' do |_conf|
-    ActiveSupport.on_load :action_controller do
-      ActionController::Base.prepend_view_path Rails.root.join('app', 'components')
-    end
-
     ActiveSupport.on_load :action_view do
       require 'frails/monkey/action_view/abstract_renderer'
       require 'frails/monkey/action_view/template_renderer'
       require 'frails/monkey/action_view/partial_renderer'
-      require 'frails/monkey/action_view/renderer'
+      require 'frails/monkey/action_view/render_helper'
 
       ActionView::AbstractRenderer.send :prepend, Frails::Monkey::ActionView::AbstractRenderer
       ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
       ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::PartialRenderer
-      ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::Renderer
+      ActionView::Base.send :prepend, Frails::Monkey::ActionView::RenderHelper
     end
   end
 

@@ -10,6 +10,8 @@
   "views/pages/home.js": "/assets/views/pages/home-26f6510bf15bc4da.js",
   "views/layouts/application.css": "/assets/views/layouts/application-26f6510bf15bc4da.css",
   "views/layouts/application.js": "/assets/views/layouts/application-26f6510bf15bc4da.js",
+  "components/footer/index.css": "/assets/components/footer/index-26f6510bf15bc4da.css",
+  "components/angel/index.css": "/assets/components/angel/index-26f6510bf15bc4da.css",
   "entrypoints": {
     "application": {
       "js": [

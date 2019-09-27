@@ -3,6 +3,7 @@
 module Frails::Component
 end
 
+require 'frails/component/base'
 require 'frails/component/renderer_concerns'
 require 'frails/component/component_renderer'
 require 'frails/component/react_component_renderer'
