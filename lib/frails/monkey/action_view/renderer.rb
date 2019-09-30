@@ -14,6 +14,11 @@ module Frails
           end
         end
 
+        # Direct access to partial rendering.
+        def render_component(context, options, &block) #:nodoc:
+          render_component_to_object(context, options, &block).body
+        end
+
         def render_component_to_object(context, options, &block)
           component = options[:component].to_s
 

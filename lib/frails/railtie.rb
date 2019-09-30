@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails/railtie'
-require 'English'
 require 'frails/helper'
 require 'frails/dev_server_proxy'
 
