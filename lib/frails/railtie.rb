@@ -10,25 +10,6 @@ class Frails::Engine < ::Rails::Engine
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
   end
 
-  initializer 'frails.yarn_check' do
-    if Rails.env.development? && File.exist?('yarn.lock')
-      output = `yarn check --integrity && yarn check --verify-tree 2>&1`
-
-      unless $CHILD_STATUS.success?
-        warn "\n\n"
-        warn '========================================'
-        warn '  Your Yarn packages are out of date!'
-        warn '  Please run `yarn install --check-files` to update.'
-        warn '========================================'
-        warn "\n\n"
-        warn output
-        warn "\n\n"
-
-        exit(1)
-      end
-    end
-  end
-
   initializer 'frails.rendering' do |_conf|
     ActiveSupport.on_load :action_controller do
       ActionController::Base.prepend_view_path Rails.root.join('app', 'components')
