@@ -18,6 +18,13 @@ class SideLoadTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'no side load' do
+    get '/no_side_load'
+
+    assert_response :success
+    assert_select 'style', false
+  end
+
   test 'javascripts' do
     get '/'
 

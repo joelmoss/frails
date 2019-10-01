@@ -8,6 +8,7 @@
   "views/pages/_header.js": "/assets/views/pages/_header-26f6510bf15bc4da.js",
   "views/pages/home.css": "/assets/views/pages/home-26f6510bf15bc4da.css",
   "views/pages/home.js": "/assets/views/pages/home-26f6510bf15bc4da.js",
+  "views/layouts/no_side.css": "/assets/views/layouts/no_side-26f6510bf15bc4da.css",
   "views/layouts/application.css": "/assets/views/layouts/application-26f6510bf15bc4da.css",
   "views/layouts/application.js": "/assets/views/layouts/application-26f6510bf15bc4da.js",
   "entrypoints": {

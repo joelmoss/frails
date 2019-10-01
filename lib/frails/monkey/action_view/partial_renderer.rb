@@ -12,8 +12,8 @@ module Frails
         end
 
         def build_rendered_template(content, template, layout = nil)
-          content = transform_css_modules(content).html_safe
-          ::ActionView::AbstractRenderer::RenderedTemplate.new content, layout, template
+          content = transform_css_modules(content).html_safe if @asset_path
+          super
         end
 
         def transform_css_modules(content)

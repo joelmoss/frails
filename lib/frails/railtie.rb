@@ -9,9 +9,17 @@ class Frails::Engine < ::Rails::Engine
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
   end
 
-  initializer 'frails.rendering' do |_conf|
+  initializer 'frails.rendering' do
     ActiveSupport.on_load :action_controller do
-      ActionController::Base.prepend_view_path Rails.root.join('app', 'components')
+      require 'frails/side_load_assets'
+
+      include Frails::SideLoadAssets
+    end
+
+    ActiveSupport.on_load :action_mailer do
+      require 'frails/side_load_assets'
+
+      include Frails::SideLoadAssets
     end
 
     ActiveSupport.on_load :action_view do
