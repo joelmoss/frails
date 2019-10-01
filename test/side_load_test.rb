@@ -33,6 +33,12 @@ class SideLoadTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test 'only html templates' do
+    get '/about.json'
+
+    assert_response :success
+  end
+
   test 'multiple of the same partial' do
     get '/about'
 
