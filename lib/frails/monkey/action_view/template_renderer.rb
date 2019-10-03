@@ -4,8 +4,15 @@ module Frails
   module Monkey
     module ActionView
       module TemplateRenderer
+        def render(context, options)
+          # See Frails::SideLoadAssets
+          @side_load_assets = options.key?(:side_load_assets) ? options[:side_load_assets] : false
+
+          super
+        end
+
         def render_template(view, template, layout_name, locals)
-          return super if template.type != :html
+          return super if !@side_load_assets || template.type != :html
 
           # Side load layout assets - if any.
           if layout_name

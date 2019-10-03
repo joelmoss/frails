@@ -9,11 +9,12 @@ class Frails::Engine < ::Rails::Engine
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
   end
 
-  initializer 'frails.rendering' do
+  initializer 'frails' do
     ActiveSupport.on_load :action_controller do
       require 'frails/side_load_assets'
 
       include Frails::SideLoadAssets
+      ActionController::Base.helper Frails::Helper
     end
 
     ActiveSupport.on_load :action_mailer do
@@ -32,15 +33,7 @@ class Frails::Engine < ::Rails::Engine
       ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
       ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::PartialRenderer
       ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::Renderer
-    end
-  end
 
-  initializer 'frails.helper' do
-    ActiveSupport.on_load :action_controller do
-      ActionController::Base.helper Frails::Helper
-    end
-
-    ActiveSupport.on_load :action_view do
       include Frails::Helper
     end
   end

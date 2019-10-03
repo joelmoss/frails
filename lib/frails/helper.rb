@@ -1,32 +1,13 @@
 # frozen_string_literal: true
 
 module Frails::Helper
-  def render(options = {}, locals = {}, &block)
-    case options
-    when Hash
-      if Rails::VERSION::MAJOR >= 6
-        in_rendering_context(options) do |_renderer|
-          if block_given?
-            # MONKEY PATCH! simply renders the component with the given block.
-            return view_renderer.render_component(self, options, &block) if options.key?(:component)
-
-            view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
-          else
-            view_renderer.render(self, options)
-          end
-        end
-      else
-        if block_given?
-          # MONKEY PATCH! simply renders the component with the given block.
-          return view_renderer.render_component(self, options, &block) if options.key?(:component)
-
-          view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
-        else
-          view_renderer.render(self, options)
-        end
+  def render(options = {}, args = {}, &block)
+    if options.is_a?(Hash) && options.key?(:component)
+      in_rendering_context(options) do |_renderer|
+        view_renderer.render_component(self, options, &block)
       end
     else
-      view_renderer.render_partial(self, partial: options, locals: locals, &block)
+      super
     end
   end
 

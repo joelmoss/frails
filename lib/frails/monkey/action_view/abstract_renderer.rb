@@ -5,8 +5,6 @@ module Frails
     module ActionView
       module AbstractRenderer
         def side_load_assets(view, tpl)
-          return unless view.controller._side_load_assets?
-
           path = tpl.short_identifier.delete_prefix('app/').delete_suffix('.html.erb')
 
           instrument :side_loaded_assets, identifier: tpl.identifier, asset_types: [] do |payload|
