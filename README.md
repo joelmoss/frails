@@ -100,11 +100,12 @@ image_pack_tag 'logo.png'
 Frails has the ability to automatically include your Javascript and CSS based on the current layout
 and/or view. It even supports side loading partials.
 
-Just add the following tio your `ApplicationController`:
+Just set the `side_load_assets` class variable to your `ApplicationController`, or indeed to any
+controller.
 
 ```ruby
 class ApplicationController < ActionController::Base
-  side_load_assets
+  self.side_load_assets = true
 end
 ```
 
