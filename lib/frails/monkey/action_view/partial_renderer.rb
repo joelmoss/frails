@@ -6,7 +6,13 @@ module Frails
       module PartialRenderer
         def render_partial(view, template)
           # Side load partial assets - if any.
-          @asset_path = view.controller._side_load_assets? && side_load_assets(view, template)
+          @asset_path = @side_load_assets && side_load_assets(view, template)
+
+          super
+        end
+
+        def setup(context, options, as, block)
+          @side_load_assets = options.key?(:side_load_assets) ? options[:side_load_assets] : false
 
           super
         end

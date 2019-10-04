@@ -14,7 +14,6 @@ class Frails::Engine < ::Rails::Engine
       require 'frails/side_load_assets'
 
       include Frails::SideLoadAssets
-      ActionController::Base.helper Frails::Helper
     end
 
     ActiveSupport.on_load :action_mailer do
