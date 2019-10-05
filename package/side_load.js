@@ -10,12 +10,14 @@ const appPath = path.join(process.cwd(), "app");
 const build = () => {
   const result = {};
 
-  glob.sync(path.join(appPath, "views/**/*.{css,js}")).forEach(paf => {
-    const namespace = path.relative(appPath, path.dirname(paf));
-    const name = path.join(namespace, path.basename(paf, path.extname(paf)));
+  glob
+    .sync(path.join(appPath, "views/**/*.{css,scss,sass,less,js}"))
+    .forEach(paf => {
+      const namespace = path.relative(appPath, path.dirname(paf));
+      const name = path.join(namespace, path.basename(paf, path.extname(paf)));
 
-    has(result, name) ? result[name].push(paf) : (result[name] = [paf]);
-  });
+      has(result, name) ? result[name].push(paf) : (result[name] = [paf]);
+    });
 
   return result;
 };

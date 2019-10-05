@@ -40,7 +40,7 @@ module Frails
         end
 
         def build_ident(local_name)
-          path = Rails.root.join('app', "#{@asset_path}.css").relative_path_from(Rails.root)
+          path = stylesheet_path_for_ident
           hash_digest = Digest::MD5.hexdigest("#{path}+#{local_name}")[0, 6]
 
           return "#{local_name}-#{hash_digest}" unless Frails.dev_server.running?
@@ -49,6 +49,11 @@ module Frails
           ident = +"#{name}__#{local_name}___#{hash_digest}"
           ident.prepend("#{path.dirname.to_s.tr('/', '-')}-")
           ident
+        end
+
+        def stylesheet_path_for_ident
+          exts = 'css,scss,sass,less'
+          Rails.root.glob("app/#{@asset_path}.{#{exts}}").first.relative_path_from(Rails.root)
         end
       end
     end
