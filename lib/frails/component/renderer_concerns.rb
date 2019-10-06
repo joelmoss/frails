@@ -17,13 +17,13 @@ module Frails::Component::RendererConcerns
       # Don't inline the styles if already inlined.
       return if inlined_stylesheets.include?(@component)
 
-      Frails.manifest.read!(stylesheet_entry_file, :stylesheet) do |path, src|
+      Frails.manifest.read(stylesheet_entry_file, :stylesheet) do |path, src|
         @view.content_for :component_styles do
           @view.content_tag(:style, src, { data: { href: path } }, false)
         end
-      end
 
-      inlined_stylesheets << @component
+        inlined_stylesheets << @component
+      end
     end
 
     def inlined_stylesheets

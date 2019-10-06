@@ -23,11 +23,11 @@ module Frails
           component = options[:component].to_s
 
           result = if Rails.root.join('app', 'components', component, 'index.entry.jsx').exist?
-                     Frails::Component::ReactComponentRenderer.new.render(context, options, &block)
+                     Frails::Component::ReactRenderer.new.render(context, options, &block)
                    else
                      options[:partial] = "#{component}/index"
-                     Frails::Component::ComponentRenderer.new(@lookup_context)
-                                                         .render(context, options, &block)
+                     Frails::Component::Renderer.new(@lookup_context)
+                                                .render(context, options, &block)
                    end
 
           ::ActionView::AbstractRenderer::RenderedTemplate.new result, nil, nil

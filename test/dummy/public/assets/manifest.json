@@ -13,16 +13,12 @@
   "views/layouts/application.css": "/assets/views/layouts/application-26f6510bf15bc4da.css",
   "views/layouts/application.js": "/assets/views/layouts/application-26f6510bf15bc4da.js",
   "entrypoints": {
-    "application": {
-      "js": [
-        "/assets/vendors~application~bootstrap-c20632e7baf2c81200d3.chunk.js",
-        "/assets/vendors~application-e55f2aae30c07fb6d82a.chunk.js",
-        "/assets/application-k344a6d59eef8632c9d1.js"
-      ],
-      "css": [
-        "/assets/1-c20632e7baf2c81200d3.chunk.css",
-        "/assets/application-k344a6d59eef8632c9d1.chunk.css"
-      ]
+    "views/layouts/application": {
+      "js": ["/assets/views/layouts/application-26f6510bf15bc4da.js"],
+      "css": ["/assets/views/layouts/application-26f6510bf15bc4da.css"]
+    },
+    "components/template_with_css/index": {
+      "css": ["/assets/components/template_with_css/index.css"]
     }
   }
 }

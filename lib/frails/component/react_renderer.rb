@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'frails/utils'
-
-class Frails::Component::ReactComponentRenderer
+class Frails::Component::ReactRenderer
   include Frails::Component::RendererConcerns
 
   def render(context, options, &block)

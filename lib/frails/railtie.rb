@@ -14,6 +14,8 @@ class Frails::Engine < ::Rails::Engine
       require 'frails/side_load_assets'
 
       include Frails::SideLoadAssets
+
+      append_view_path Rails.root.join('app', 'components')
     end
 
     ActiveSupport.on_load :action_mailer do

@@ -1,18 +1,27 @@
 # frozen_string_literal: true
 
-class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
+class Frails::Component::Renderer < ActionView::PartialRenderer
   include Frails::Component::RendererConcerns
+
+  # Overwritten to make sure we don't lookup partials. Even though this inherits from the
+  # PartialRenderer, component templates do not have a the underscore prefix that partials have.
+  def find_template(path, locals)
+    prefixes = path.include?('/') ? [] : @lookup_context.prefixes
+    @lookup_context.find_template(path, prefixes, false, locals, @details)
+  end
 
   def render(context, options, &block)
     @view = context
     @component = options.delete(:component).to_s
     @presenter = presenter_class.new(@view, options)
+    @children = @view.capture(&block) if block_given?
 
     result = @presenter.run_callbacks :render do
       if @presenter.respond_to?(:render)
         @presenter.render(&block)
       else
         options[:locals] = @presenter.locals
+        options[:locals][:children] = @children
         super context, options, block
       end
     end
