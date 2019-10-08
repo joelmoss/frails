@@ -4,10 +4,22 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
   include Frails::Component::RendererConcerns
 
   # Overwritten to make sure we don't lookup partials. Even though this inherits from the
-  # PartialRenderer, component templates do not have a the underscore prefix that partials have.
+  # PartialRenderer, component templates do not have the underscore prefix that partials have.
+  #
+  # Additionally, this will ensure that ONLY the app/components directory is used as the only view
+  # path to search within when looking up the component template.
   def find_template(path, locals)
+    path_count = @lookup_context.view_paths.size
+    @lookup_context.view_paths.unshift Rails.root.join('app', 'components')
+    old_paths = @lookup_context.view_paths.pop(path_count)
+
     prefixes = path.include?('/') ? [] : @lookup_context.prefixes
-    @lookup_context.find_template(path, prefixes, false, locals, @details)
+    result = @lookup_context.find_template(path, prefixes, false, locals, @details)
+
+    @lookup_context.view_paths.unshift(*old_paths)
+    @lookup_context.view_paths.pop
+
+    result
   end
 
   def render(context, options, &block)
