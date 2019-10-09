@@ -44,7 +44,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
   private
 
     def presenter_class
-      super || Frails::Component::PlainComponent
+      super || Frails::Component::Base
     end
 
     def apply_styles(content)

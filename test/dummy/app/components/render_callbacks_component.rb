@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RenderCallbacksComponent < Frails::Component::PlainComponent
+class RenderCallbacksComponent < Frails::Component::Base
   before_render :set_resource
 
   def locals
