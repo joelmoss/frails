@@ -17,8 +17,10 @@ class ComponentIntegrationTest < ActionDispatch::IntegrationTest
     get '/components/with_children'
 
     assert_response :success
-    assert_select 'h1', 'template_with_css'
-    assert_select 'h2', 'Hello children'
+    assert_select 'span' do
+      assert_select 'h1', 'template_with_css'
+      assert_select 'h2', 'Hello children'
+    end
   end
 
   test 'component templates restricted to app/components' do
