@@ -3,8 +3,8 @@
 module Frails
   module Component
     module TestHelpers
-      def render_inline(component, **args, &block)
-        Nokogiri::HTML(controller.view_context.render({ component: component }, args, &block))
+      def render_inline(options = {}, locals = {}, &block)
+        Nokogiri::HTML(controller.view_context.render(options, locals, &block))
       end
 
       def controller

@@ -19,6 +19,10 @@
     },
     "components/template_with_css/index": {
       "css": ["/assets/components/template_with_css/index.css"]
+    },
+    "components/react/index": {
+      "js": ["/assets/runtime.js", "/assets/components/react/index.chunk.js"],
+      "css": ["/assets/components/react/index.chunk.css"]
     }
   }
 }

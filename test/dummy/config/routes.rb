@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get 'partial_no_css' => 'pages#partial_no_css'
   get 'partial_collection' => 'pages#partial_collection'
   get 'no_side_load' => 'no_side#index'
+
+  get 'react' => 'react#index'
+  get 'react/view_instance_vars' => 'react#view_instance_vars'
+
   get 'components/template_only' => 'components#template_only'
   get 'components/without_template' => 'components#without_template'
   get 'components/render_callbacks' => 'components#render_callbacks'
