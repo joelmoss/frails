@@ -6,7 +6,7 @@ module Frails::Component::RendererConcerns
   private
 
     def presenter_class
-      klass_file = Rails.root.join('app', 'components', "#{@component}_component.rb")
+      klass_file = Frails.components_path.join("#{@component}_component.rb")
       klass_file.exist? && "#{@component.to_s.camelcase}Component".constantize
     end
 

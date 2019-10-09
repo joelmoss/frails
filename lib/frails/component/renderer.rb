@@ -10,7 +10,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
   # path to search within when looking up the component template.
   def find_template(path, locals)
     path_count = @lookup_context.view_paths.size
-    @lookup_context.view_paths.unshift Rails.root.join('app', 'components')
+    @lookup_context.view_paths.unshift Frails.components_path
     old_paths = @lookup_context.view_paths.pop(path_count)
 
     prefixes = path.include?('/') ? [] : @lookup_context.prefixes
@@ -89,7 +89,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
     def stylesheet_path
       @stylesheet_path ||= begin
         style_file = "#{@component}/index.css"
-        Rails.root.join('app', 'components', style_file).relative_path_from(Rails.root)
+        Frails.components_path.join(style_file).relative_path_from(Rails.root)
       end
     end
 end

@@ -22,7 +22,7 @@ module Frails
         def render_component_to_object(context, options, &block)
           component = options[:component].to_s
 
-          result = if Rails.root.join('app', 'components', component, 'index.entry.jsx').exist?
+          result = if Frails.components_path.join(component, 'index.entry.jsx').exist?
                      Frails::Component::ReactRenderer.new.render(context, options, &block)
                    else
                      options[:partial] = "#{component}/index"

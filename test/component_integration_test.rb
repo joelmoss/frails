@@ -36,6 +36,9 @@ class ComponentIntegrationTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_select 'div', count: 2, text: 'template_with_css'
+    assert_select 'span' do
+      assert_select '[class="description-3c07c9"]'
+    end
     assert_select "style[data-href='/assets/components/template_with_css/index.css']",
                   count: 1, text: "div {\n  color: red;\n}\n"
   end
