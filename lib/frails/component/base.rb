@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Frails::Component::Base < Frails::Component::AbstractComponent
+class Frails::Component::Base < Frails::Component::Abstract
   PRIVATE_METHODS = %i[render method_missing locals].freeze
 
   def initialize(view, options)

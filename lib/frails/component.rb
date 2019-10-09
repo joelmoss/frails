@@ -17,6 +17,6 @@ end
 require 'frails/component/renderer_concerns'
 require 'frails/component/renderer'
 require 'frails/component/react_renderer'
-require 'frails/component/abstract_component'
+require 'frails/component/abstract'
 require 'frails/component/base'
-require 'frails/component/react_component'
+require 'frails/component/react'

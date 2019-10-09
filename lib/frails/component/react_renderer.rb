@@ -35,7 +35,7 @@ class Frails::Component::ReactRenderer
     end
 
     def presenter_class
-      super || Frails::Component::ReactComponent
+      super || Frails::Component::React
     end
 
     def data_for_content_tag
