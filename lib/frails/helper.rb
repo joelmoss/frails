@@ -7,10 +7,9 @@ module Frails::Helper
     case options
     when Hash
       in_rendering_context(options) do
-        options[:side_load_assets] = sload_assets
-
         return view_renderer.render_component(self, options, &block) if options.key?(:component)
 
+        options[:side_load_assets] = sload_assets
         if block_given?
           view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
         else
