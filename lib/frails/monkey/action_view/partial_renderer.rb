@@ -4,6 +4,13 @@ module Frails
   module Monkey
     module ActionView
       module PartialRenderer
+        def render_collection(view, template)
+          # Side load partial assets - if any.
+          @asset_path = @side_load_assets && side_load_assets(view, template)
+
+          super
+        end
+
         def render_partial(view, template)
           # Side load partial assets - if any.
           @asset_path = @side_load_assets && side_load_assets(view, template)
@@ -26,21 +33,21 @@ module Frails
           doc = Nokogiri::HTML::DocumentFragment.parse(content)
 
           return content if (modules = doc.css('[css_module]')).empty?
+          return content unless (path = stylesheet_path_for_ident)
 
           modules.each do |ele|
-            classes = class_name_for_style(ele.delete('css_module'))
+            classes = class_name_for_style(ele.delete('css_module'), path)
             ele['class'] = (ele['class'].nil? ? classes : classes << ele['class']).join(' ')
           end
 
           doc.to_html
         end
 
-        def class_name_for_style(class_names)
-          class_names.to_s.split.map { |class_name| build_ident class_name }
+        def class_name_for_style(class_names, path)
+          class_names.to_s.split.map { |class_name| build_ident class_name, path }
         end
 
-        def build_ident(local_name)
-          path = stylesheet_path_for_ident
+        def build_ident(local_name, path)
           hash_digest = Digest::MD5.hexdigest("#{path}+#{local_name}")[0, 6]
 
           return "#{local_name}-#{hash_digest}" unless Frails.dev_server.running?
@@ -52,8 +59,9 @@ module Frails
         end
 
         def stylesheet_path_for_ident
-          exts = 'css,scss,sass,less'
-          Rails.root.glob("app/#{@asset_path}.{#{exts}}").first.relative_path_from(Rails.root)
+          return if (globs = Rails.root.glob("app/#{@asset_path}.{css,scss,sass,less}")).empty?
+
+          globs.first.relative_path_from(Rails.root)
         end
       end
     end
