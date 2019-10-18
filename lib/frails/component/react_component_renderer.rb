@@ -15,7 +15,6 @@ class Frails::Component::ReactComponentRenderer
 
   private
 
-    # rubocop:disable Rails/OutputSafety
     def render_with_callbacks
       @presenter.run_callbacks :render do
         @prerender = @presenter.prerender
@@ -32,7 +31,6 @@ class Frails::Component::ReactComponentRenderer
         @prerender ? move_console_replay_script(rendered_tag) : rendered_tag
       end
     end
-    # rubocop:enable Rails/OutputSafety
 
     def presenter_class
       super || Frails::Component::ReactComponent
@@ -58,19 +56,17 @@ class Frails::Component::ReactComponentRenderer
     end
 
     def loader
-      return unless @content_loader
-
-      @view.render "shared/content_loaders/#{@content_loader == true ? 'code' : @content_loader}"
-    end
+      @content_loader ? @view.render(@content_loader) : nil
+        end
 
     # Grab the server-rendered console replay script and move it outside the container div.
     #
-    # rubocop:disable Rails/OutputSafety, Style/RegexpLiteral
+    # rubocop:disable Style/RegexpLiteral
     def move_console_replay_script(rendered_tag)
       regex = /\n(<script class="js__reactServerConsoleReplay">.*<\/script>)<\/(\w+)>$/m
       rendered_tag.sub(regex, '</\2>\1').html_safe
     end
-    # rubocop:enable Rails/OutputSafety, Style/RegexpLiteral
+    # rubocop:enable Style/RegexpLiteral
 
     def stylesheet_entry_file
       "#{@component.tr('/', '-')}-index-entry-jsx"
