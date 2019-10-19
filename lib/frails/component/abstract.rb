@@ -5,8 +5,10 @@ class Frails::Component::Abstract
 
   define_callbacks :render
 
-  def initialize(view, options)
-    @view, @options = view, options
+  def initialize(view, path, options)
+    @view = view
+    @path = path
+    @options = options
 
     expand_instance_vars
   end
@@ -24,19 +26,19 @@ class Frails::Component::Abstract
   # rubocop:disable Lint/ShadowedException, Style/MissingRespondToMissing
   def method_missing(method, *args, &block)
     super
-  rescue NoMethodError, NameError => e1
+  rescue NoMethodError, NameError => e
     # the error is not mine, so just releases it as is.
-    raise e1 if e1.name != method
+    raise e if e.name != method
 
     begin
       @view.send method, *args, &block
-    rescue NoMethodError => e2
-      raise e2 if e2.name != method
+    rescue NoMethodError => e
+      raise e if e.name != method
 
       raise NoMethodError.new("undefined method `#{method}' for either #{self} or #{@view}",
                               method)
-    rescue NameError => e2
-      raise e2 if e2.name != method
+    rescue NameError => e
+      raise e if e.name != method
 
       raise NameError.new("undefined local variable `#{method}' for either #{self} or #{@view}",
                           method)

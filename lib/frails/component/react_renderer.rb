@@ -5,8 +5,10 @@ class Frails::Component::ReactRenderer
 
   def render(context, options, &block)
     @view = context
-    @component = options.delete(:component).to_s
-    @presenter = presenter_class.new(@view, options)
+    @component = options.delete(:component)
+
+    klass = presenter_class
+    @presenter = klass.new(@view, @component, options)
 
     @children = @view.capture(&block) if block_given?
 

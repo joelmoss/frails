@@ -24,9 +24,13 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
 
   def render(context, options, &block)
     @view = context
-    @component = options.delete(:component).to_s
-    @presenter = presenter_class.new(@view, options)
+    @component = options.delete(:component)
+
+    klass = presenter_class
+    @presenter = klass.new(@view, @component, options)
+
     @children = @view.capture(&block) if block_given?
+    options[:partial] = @presenter
 
     result = @presenter.run_callbacks :render do
       if @presenter.respond_to?(:render)

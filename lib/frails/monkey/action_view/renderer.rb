@@ -4,7 +4,7 @@ module Frails
   module Monkey
     module ActionView
       module Renderer
-        def render_to_object(context, options) # :nodoc:
+        def render_to_object(context, options)
           if options.key?(:partial)
             render_partial_to_object(context, options)
           elsif options.key?(:component)
@@ -15,7 +15,7 @@ module Frails
         end
 
         # Direct access to partial rendering.
-        def render_component(context, options, &block) #:nodoc:
+        def render_component(context, options, &block)
           render_component_to_object(context, options, &block).body
         end
 
@@ -25,7 +25,6 @@ module Frails
           result = if Frails.components_path.join(component, 'index.entry.jsx').exist?
                      Frails::Component::ReactRenderer.new.render(context, options, &block)
                    else
-                     options[:partial] = "#{component}/index"
                      Frails::Component::Renderer.new(@lookup_context)
                                                 .render(context, options, &block)
                    end

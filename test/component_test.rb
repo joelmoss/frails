@@ -28,4 +28,10 @@ class Frails::ComponentTest < Minitest::Test
 
     assert_equal result, '<div>render_callbacks - Joel Moss</div>'
   end
+
+  def test_call_render
+    result = controller.view_context.render(MyComponent, 'joel', 'moss', age: 42)
+
+    assert_equal result, '<div>my_component joel moss 42</div>'
+  end
 end
