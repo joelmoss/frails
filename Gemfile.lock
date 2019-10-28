@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    frails (0.5.1)
+    frails (0.6.0)
       nokogiri (>= 1.10.4)
       rack-proxy (>= 0.6.5)
       rails (>= 6.0)
@@ -74,7 +74,7 @@ GEM
     i18n (1.7.0)
       concurrent-ruby (~> 1.0)
     jaro_winkler (1.5.3)
-    loofah (2.3.0)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)

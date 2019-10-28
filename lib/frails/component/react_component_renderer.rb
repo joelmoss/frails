@@ -24,9 +24,11 @@ class Frails::Component::ReactComponentRenderer
 
         @prerender && render_inline_styles
 
-        rendered_tag = content_tag do
-          @prerender ? React::Renderer.new.render(@component, @props).html_safe : loader
-        end
+        rendered_tag = if @prerender
+                         content_tag { React::Renderer.new.render(@component, @props).html_safe }
+                       else
+                         loader || content_tag { nil }
+                       end
 
         @prerender ? move_console_replay_script(rendered_tag) : rendered_tag
       end
@@ -47,8 +49,8 @@ class Frails::Component::ReactComponentRenderer
     end
 
     def content_tag(&block)
-      classes = "js__reactComponent #{@presenter.class_name}"
-      @view.content_tag @presenter.tag, class: classes, data: data_for_content_tag, &block
+      class_names = "js__reactComponent #{@presenter.class_name}"
+      @view.content_tag @presenter.tag, class: class_names, data: data_for_content_tag, &block
     end
 
     def camelize_keys(data)
@@ -56,8 +58,10 @@ class Frails::Component::ReactComponentRenderer
     end
 
     def loader
-      @content_loader ? @view.render(@content_loader) : nil
-        end
+      return unless @content_loader
+
+      @view.render @content_loader, class_name: 'js__reactComponent', data: data_for_content_tag
+    end
 
     # Grab the server-rendered console replay script and move it outside the container div.
     #
