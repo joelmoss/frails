@@ -19,7 +19,7 @@ class Frails::Component::ReactComponentRenderer
       @presenter.run_callbacks :render do
         @prerender = @presenter.prerender
         @content_loader = @presenter.content_loader
-        @props = @presenter.props
+        @props = camelize_keys(@presenter.props)
         @props[:children] = @children if @children
 
         @prerender && render_inline_styles
@@ -51,6 +51,10 @@ class Frails::Component::ReactComponentRenderer
     def content_tag(&block)
       class_names = "js__reactComponent #{@presenter.class_name}"
       @view.content_tag @presenter.tag, class: class_names, data: data_for_content_tag, &block
+    end
+
+    def camelize_keys(data)
+      data.deep_transform_keys { |key| key.to_s.camelize :lower }
     end
 
     def loader
