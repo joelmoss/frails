@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'frails/utils'
+
 class Frails::Component::ReactComponentRenderer
   include Frails::Component::RendererConcerns
 
@@ -54,7 +56,9 @@ class Frails::Component::ReactComponentRenderer
     end
 
     def camelize_keys(data)
-      data.deep_transform_keys { |key| key.to_s.camelize :lower }
+      data.deep_transform_keys do |key|
+        Frails::Utils.camelize key.to_s, :lower, convert_slashes: false
+      end
     end
 
     def loader
