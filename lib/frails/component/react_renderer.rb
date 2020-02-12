@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'frails/utils'
+
 class Frails::Component::ReactRenderer
   include Frails::Component::RendererConcerns
 

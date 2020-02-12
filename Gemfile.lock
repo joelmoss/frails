@@ -89,7 +89,6 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
-    oj (3.9.2)
     parallel (1.17.0)
     parser (2.6.4.1)
       ast (~> 2.4.0)
@@ -156,8 +155,7 @@ PLATFORMS
 
 DEPENDENCIES
   frails!
-  oj
   rubocop
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
