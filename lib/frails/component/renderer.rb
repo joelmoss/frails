@@ -29,7 +29,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
     klass = presenter_class
     @presenter = klass.new(@view, @component, options)
 
-    @children = @view.capture(&block) if block_given?
+    @children = block_given? ? @view.capture(&block) : nil
     options[:partial] = @presenter
 
     result = @presenter.run_callbacks :render do

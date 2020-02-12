@@ -24,7 +24,7 @@ class Frails::Component::ReactRenderer
         @prerender = @presenter.prerender
         @content_loader = @presenter.content_loader
         @props = camelize_keys(@presenter.props)
-        @props[:children] = @children if @children
+        @props[:children] = @children if instance_variable_defined?(:@children)
 
         @prerender && render_inline_styles
 
