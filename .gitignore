@@ -10,3 +10,6 @@
 .DS_Store
 *.log
 .byebug_history
+test/dummy/node_modules
+test/dummy/tmp
+test/dummy/log
