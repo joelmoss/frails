@@ -8,6 +8,13 @@ Frails is a modern asset pipeline for [Rails](https://rubyonrails.org), built on
 - Full Webpack control without fighting with the likes of Webpacker.
 - Embrace modern front end practices.
 
+PLUS...
+
+- Side loaded layouts, views and partials.
+- Components
+  - React + SSR
+  - Ruby/HTML
+
 ## Installation
 
 Frails is designed to work only within a Rails application, so must be installed in an existing Rails app. It also requires Node.js and a valid `package.json` file in your app root.

@@ -69,8 +69,8 @@ class Frails::Manifest
       end
 
       begin
-        open("http://#{Frails.dev_server.host_with_port}#{path}").read
-      rescue OpenURI::HTTPError => e
+        URI.open("http://#{Frails.dev_server.host_with_port}#{path}").read
+      rescue OpenURI::HTTPError
         handle_missing_entry path
       end
     end

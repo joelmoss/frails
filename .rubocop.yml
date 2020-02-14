@@ -6,7 +6,7 @@ Style/ModuleFunction:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 Layout/IndentationConsistency:
   EnforcedStyle: indented_internal_methods

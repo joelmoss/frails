@@ -2,13 +2,15 @@
 
 require 'frails/utils'
 
-class Frails::Component::ReactComponentRenderer
+class Frails::Component::ReactRenderer
   include Frails::Component::RendererConcerns
 
   def render(context, options, &block)
     @view = context
-    @component = options.delete(:component).to_s
-    @presenter = presenter_class.new(@view, options)
+    @component = options.delete(:component)
+
+    klass = presenter_class
+    @presenter = klass.new(@view, @component, options)
 
     @children = @view.capture(&block) if block_given?
 
@@ -22,7 +24,7 @@ class Frails::Component::ReactComponentRenderer
         @prerender = @presenter.prerender
         @content_loader = @presenter.content_loader
         @props = camelize_keys(@presenter.props)
-        @props[:children] = @children if @children
+        @props[:children] = @children if instance_variable_defined?(:@children)
 
         @prerender && render_inline_styles
 
@@ -37,7 +39,7 @@ class Frails::Component::ReactComponentRenderer
     end
 
     def presenter_class
-      super || Frails::Component::ReactComponent
+      super || Frails::Component::React
     end
 
     def data_for_content_tag

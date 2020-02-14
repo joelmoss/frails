@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 module Frails::Helper
-  def render(options = {}, locals = {}, &block)
+  def render(options = {}, *locals, &block)
     sload_assets = respond_to?(:side_load_assets?) ? side_load_assets? : false
 
     case options
     when Hash
       in_rendering_context(options) do
-        options[:side_load_assets] = sload_assets
-
         return view_renderer.render_component(self, options, &block) if options.key?(:component)
 
+        options[:side_load_assets] = sload_assets
         if block_given?
           view_renderer.render_partial(self, options.merge(partial: options[:layout]), &block)
         else
@@ -18,8 +17,12 @@ module Frails::Helper
         end
       end
     else
+      if options.is_a?(Class) && options < Frails::Component::Base
+        return view_renderer.render_component(self, { component: options, locals: locals }, &block)
+      end
+
       view_renderer.render_partial(self, side_load_assets: sload_assets, partial: options,
-                                         locals: locals, &block)
+                                         locals: locals.extract_options!, &block)
     end
   end
 

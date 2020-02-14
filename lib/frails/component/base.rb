@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-class Frails::Component::PlainComponent < Frails::Component::AbstractComponent
-  PRIVATE_METHODS = %i[render method_missing locals].freeze
+class Frails::Component::Base < Frails::Component::Abstract
+  PRIVATE_METHODS = %i[render method_missing locals to_partial_path].freeze
 
-  def initialize(view, options)
+  def initialize(view, path, options)
     super
 
     @locals = @options.fetch(:locals, @options)
@@ -15,5 +15,9 @@ class Frails::Component::PlainComponent < Frails::Component::AbstractComponent
       hash[method] = send(method) unless PRIVATE_METHODS.include?(method)
     end
     hash.merge @locals
+  end
+
+  def to_partial_path
+    "#{@path}/index"
   end
 end

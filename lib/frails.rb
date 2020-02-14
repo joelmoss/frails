@@ -27,6 +27,10 @@ module Frails
   def manifest_path
     ENV['FRAILS_MANIFEST_PATH'] || 'manifest.json'
   end
+
+  def components_path
+    @components_path ||= Rails.root.join('app', 'components')
+  end
 end
 
 require 'frails/log_subscriber'

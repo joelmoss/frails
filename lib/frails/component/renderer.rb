@@ -1,18 +1,43 @@
 # frozen_string_literal: true
 
-class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
+class Frails::Component::Renderer < ActionView::PartialRenderer
   include Frails::Component::RendererConcerns
+
+  # Overwritten to make sure we don't lookup partials. Even though this inherits from the
+  # PartialRenderer, component templates do not have the underscore prefix that partials have.
+  #
+  # Additionally, this will ensure that ONLY the app/components directory is used as the only view
+  # path to search within when looking up the component template.
+  def find_template(path, locals)
+    path_count = @lookup_context.view_paths.size
+    @lookup_context.view_paths.unshift Frails.components_path
+    old_paths = @lookup_context.view_paths.pop(path_count)
+
+    prefixes = path.include?('/') ? [] : @lookup_context.prefixes
+    result = @lookup_context.find_template(path, prefixes, false, locals, @details)
+
+    @lookup_context.view_paths.unshift(*old_paths)
+    @lookup_context.view_paths.pop
+
+    result
+  end
 
   def render(context, options, &block)
     @view = context
-    @component = options.delete(:component).to_s
-    @presenter = presenter_class.new(@view, options)
+    @component = options.delete(:component)
+
+    klass = presenter_class
+    @presenter = klass.new(@view, @component, options)
+
+    @children = block_given? ? @view.capture(&block) : nil
+    options[:partial] = @presenter
 
     result = @presenter.run_callbacks :render do
       if @presenter.respond_to?(:render)
         @presenter.render(&block)
       else
         options[:locals] = @presenter.locals
+        options[:locals][:children] = @children
         super context, options, block
       end
     end
@@ -23,7 +48,7 @@ class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
   private
 
     def presenter_class
-      super || Frails::Component::PlainComponent
+      super || Frails::Component::Base
     end
 
     def apply_styles(content)
@@ -68,7 +93,7 @@ class Frails::Component::ComponentRenderer < ActionView::PartialRenderer
     def stylesheet_path
       @stylesheet_path ||= begin
         style_file = "#{@component}/index.css"
-        Rails.root.join('app', 'components', style_file).relative_path_from(Rails.root)
+        Frails.components_path.join(style_file).relative_path_from(Rails.root)
       end
     end
 end

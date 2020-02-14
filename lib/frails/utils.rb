@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Frails
-  class Utils
+  module Utils
     def self.camelize(term, first_letter = :upper, convert_slashes: true)
       # If we are not converting slashes, and `first_letter` is `:lower`, this ensures that the
       # first letter after a slash is not capitalized.
