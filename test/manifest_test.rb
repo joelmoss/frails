@@ -33,6 +33,7 @@ class ManifestTest < Minitest::Test
   end
 
   def test_unknown_manifest
+    Frails.manifest['nuffin.json']
     assert_raises Frails::Manifest::MissingManifestError do
       Frails.manifest['nuffin.json']
     end
