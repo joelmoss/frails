@@ -13,7 +13,8 @@ class Frails::Manifest
 
     return if @manifest_path.exist?
 
-    raise Frails::Manifest::MissingManifestError, "Frails can't find manifest #{manifest_path}"
+    raise Frails::Manifest::MissingManifestError, "Cannot find manifest #{manifest_path}. " \
+      'Have you run Webpack or is the webpack-dev-server running?'
   end
 
   def refresh
