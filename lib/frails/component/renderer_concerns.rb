@@ -24,7 +24,7 @@ module Frails::Component::RendererConcerns
       return if inlined_stylesheets.include?(@component)
 
       Frails.manifest.read(stylesheet_entry_file, :stylesheet) do |path, src|
-        @view.content_for :component_styles do
+        @view.content_for :component_css do
           @view.content_tag(:style, src, { data: { href: path } }, false)
         end
 

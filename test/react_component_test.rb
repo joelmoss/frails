@@ -24,7 +24,7 @@ class ReactComponentTest < ActionDispatch::IntegrationTest
 
   #   pp response.body
 
-  #   assert_select "style[data-href='/assets/components/react/index.css']",
+  #   assert_select "style[data-href='/frails/components/react/index.css']",
   #                 count: 1, text: "div {\n  color: red;\n}\n"
   # end
 

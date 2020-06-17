@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assets/entryPoints config 1`] = `
+Object {
+  "entry": [Function],
+  "module": Object {
+    "rules": Array [],
+  },
+  "plugins": Array [],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;
+
+exports[`assets/entryPoints entry() returns object of asset entry points 1`] = `
+Object {
+  "assets/admin/index.entry": Array [
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/admin/index.entry.js",
+  ],
+  "assets/app.entry": Array [
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/app.entry.css",
+  ],
+  "assets/application.entry": Array [
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/application.entry.js",
+  ],
+  "assets/blocks/assets/index.entry": Array [
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/blocks/assets/index.entry.css",
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/blocks/assets/index.entry.js",
+  ],
+  "assets/user.entry": Array [
+    "/Users/joelmoss/dev/frails/test/dummy/app/assets/user.entry.css",
+  ],
+}
+`;

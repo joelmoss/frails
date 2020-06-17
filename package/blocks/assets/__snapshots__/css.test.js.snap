@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assets/css config 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          Object {
+            "loader": "/Users/joelmoss/dev/frails/node_modules/mini-css-extract-plugin/dist/loader.js",
+            "options": Object {
+              "esModule": true,
+            },
+          },
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "auto": true,
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+              "sourceMap": false,
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+  "resolve": Object {
+    "extensions": Array [
+      ".js",
+      ".json",
+    ],
+  },
+  "stats": Object {
+    "children": false,
+    "chunks": false,
+    "modules": false,
+    "reasons": false,
+  },
+}
+`;

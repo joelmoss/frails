@@ -1,0 +1,40 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Rails server",
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "program": "./bin/rails",
+      "args": ["server"],
+      "cwd": "${workspaceRoot}/test/dummy"
+    },
+    {
+      "name": "Rails tests - all",
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "program": "${workspaceRoot}/bin/test"
+    },
+    {
+      "name": "Rails tests - file",
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "program": "${workspaceRoot}/bin/m",
+      "args": ["${relativeFile}"]
+    },
+    {
+      "name": "Rails tests - file and line",
+      "type": "Ruby",
+      "request": "launch",
+      "useBundler": true,
+      "program": "${workspaceRoot}/bin/m",
+      "args": ["${relativeFile}:${lineNumber}"]
+    }
+  ]
+}

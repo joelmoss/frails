@@ -15,10 +15,10 @@ class Frails::DevServer
   end
 
   def host
-    ENV['FRAILS_DEV_SERVER_HOST'] || 'localhost'
+    Frails.dev_server_host
   end
 
   def port
-    ENV['FRAILS_DEV_SERVER_PORT'] || 8080
+    Frails.dev_server_port
   end
 end

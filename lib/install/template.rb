@@ -13,7 +13,7 @@ end
 say "Installing all JavaScript dependencies [#{Frails::VERSION}]"
 run 'yarn add webpack webpack-cli'
 
-say 'Installing Webpack dev server for live reloading'
+say 'Installing Webpack dev server for development and live reloading'
 run 'yarn add --dev webpack-dev-server'
 
 say 'Frails successfully installed 🎉', :green

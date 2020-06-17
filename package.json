@@ -3,14 +3,43 @@
   "version": "0.3.0",
   "description": "A Modern [F]ront End on [Rails] and Webpack",
   "main": "index.js",
-  "files": [
-    "package"
-  ],
   "repository": "git@github.com:joelmoss/frails.git",
   "author": "Joel Moss <joel@developwithstyle.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "clearMocks": true,
+    "testEnvironment": "node"
+  },
   "dependencies": {
-    "glob": "^7.1.4",
-    "lodash.has": "^4.5.2"
+    "@webpack-blocks/assets": "^2.1.0",
+    "@webpack-blocks/babel": "^2.1.0",
+    "@webpack-blocks/core": "^2.1.0",
+    "@webpack-blocks/dev-server": "^2.1.0",
+    "@webpack-blocks/webpack": "^2.1.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "fast-glob": "^3.2.2",
+    "lodash.has": "^4.5.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "source-map-resolve": "^0.6.0",
+    "webpack": "^4.43.0",
+    "webpack-assets-manifest": "^3.1.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "deepmerge": "^4.2.2",
+    "jest": "^26.0.1",
+    "js-yaml": "^3.14.0",
+    "map-keys-deep-lodash": "^1.2.2",
+    "rails-erb-loader": "^5.5.2",
+    "virtual-module-webpack-plugin": "^0.4.1",
+    "webpack-fix-style-only-entries": "^0.5.1"
   }
 }

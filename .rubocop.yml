@@ -4,6 +4,8 @@ Style/Documentation:
   Enabled: false
 Style/ModuleFunction:
   Enabled: false
+Style/ClassVars:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Layout/LineLength:

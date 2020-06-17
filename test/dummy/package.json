@@ -4,11 +4,13 @@
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "lodash": "^4.17.15"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.10.3"
+    "@babel/core": "^7.9.6",
+    "debug": "^4.1.1",
+    "frails": "file:../..",
+    "postcss-easy-import": "^3.0.0"
   }
 }

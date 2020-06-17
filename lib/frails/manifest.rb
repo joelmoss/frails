@@ -21,40 +21,53 @@ class Frails::Manifest
     @data = load
   end
 
+  # Returns the entry points for the given entry pack `name`. By default this will return all entry
+  # points in a pack regardless of type. If the `type` argument is given, only the entry points with
+  # that type will be returned.
+  def lookup_entry(name, type = nil)
+    points = find('entrypoints')
+    pack = points["#{name}/index.entry"] || points["#{name}.entry"]
+    pack = pack[manifest_type(type)] if type
+    pack
+  end
+
+  def lookup_entry!(name, type = nil)
+    lookup_entry(name, type) || handle_missing_entry(name)
+  end
+
   # Computes the relative path for a given Frails asset using manifest.json. If no asset is found,
   # returns nil.
   #
   # Example:
-  #   Frails.manifest.lookup('calendar.js') # => "/assets/calendar-1016838bab065ae1e122.js"
-  def lookup(name, type: nil)
-    # When using SplitChunks or RuntimeChunks the manifest hash will contain an extra object called
-    # "entrypoints". When the entrypoints key is not present in the manifest, or the name is not
-    # found in the entrypoints hash, it will raise a NoMethodError. If this happens, we should try
-    # to lookup a single instance of the pack based on the given name.
-    manifest_pack_type = manifest_type(type)
-    manifest_pack_name = manifest_name(name, manifest_pack_type)
+  #   Frails.manifest.lookup('calendar.js') # => "/frails/calendar.js"
+  def lookup(name, type)
+    # When the entrypoints key is not present in the manifest, or the name is not found in the
+    # entrypoints hash, it will raise a NoMethodError. If this happens, we should try to lookup a
+    # single instance of the pack based on the given name.
+    entry_type = manifest_type(type)
+    entry_name = manifest_name(name, entry_type)
 
-    # Lookup the pack in the entrypoints of the manifest
-    find('entrypoints')[manifest_pack_name][manifest_pack_type]
+    # Lookup the entrypoint in the entrypoints of the manifest
+    find('entrypoints')[entry_name][entry_type]
   rescue NoMethodError
-    # Lookup a single instance of the pack.
+    # Lookup a single instance of the file.
     find full_pack_name(name, type)
   end
 
   # Like lookup, except that if no asset is found, raises a Frails::Manifest::MissingEntryError.
-  def lookup!(name, type: nil)
-    lookup(name, type: type) || handle_missing_entry(name)
+  def lookup!(name, type)
+    lookup(name, type) || handle_missing_entry(name)
   end
 
   def read!(name, type)
-    sources = *lookup!(name, type: type)
+    sources = *lookup!(name, type)
     sources.map do |path|
       yield path, read_source(path)
     end
   end
 
   def read(name, type)
-    sources = *lookup(name, type: type)
+    sources = *lookup(name, type)
     sources.map do |path|
       yield path, read_source(path)
     end
@@ -89,7 +102,7 @@ class Frails::Manifest
     end
 
     def handle_missing_entry(name)
-      raise Frails::Manifest::MissingEntryError, missing_file_from_manifest_error(name)
+      raise Frails::Manifest::MissingEntryError, "Frails can't find #{name} in #{manifest_path}."
     end
 
     def find(name)
@@ -102,13 +115,13 @@ class Frails::Manifest
       "#{name}.#{manifest_type(type)}"
     end
 
-    # The `manifest_name` method strips of the file extension of the name, because in the
-    # manifest hash the entrypoints are defined by their pack name without the extension.
-    # When the user provides a name with a file extension, we want to try to strip it off.
+    # Strips of the file extension of the given `name`, because in the manifest hash the entrypoints
+    # are defined by their pack name without the extension. When the user provides a name with a
+    # file extension, we want to try to strip it off.
     def manifest_name(name, type)
       return name if File.extname(name.to_s).empty?
 
-      File.basename(name, type)
+      File.join File.dirname(name), File.basename(name, type)
     end
 
     def manifest_type(type)
@@ -117,12 +130,5 @@ class Frails::Manifest
       when :stylesheet then 'css'
       else type.to_s
       end
-    end
-
-    def missing_file_from_manifest_error(bundle_name)
-      <<~MSG
-        Frails can't find #{bundle_name} in #{manifest_path}. Your manifest contains:
-        #{JSON.pretty_generate(@data)}
-      MSG
     end
 end

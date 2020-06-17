@@ -3,7 +3,7 @@
 require 'frails/manifest'
 
 class Frails::ManifestManager
-  delegate :lookup, :lookup!, :read, :read!, to: :default_instance
+  delegate :lookup, :lookup!, :lookup_entry, :lookup_entry!, :read, :read!, to: :default_instance
 
   def initialize
     @instances = {}

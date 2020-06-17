@@ -15,6 +15,7 @@
 
 
 /public/assets
+/public/frails
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.

@@ -25,9 +25,9 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'body' do
       # Order matters here, so layout, then view, then partials.
-      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application-26f6510bf15bc4da.js'
-      assert_select 'script:nth(2)[src=?]', '/assets/views/pages/home-26f6510bf15bc4da.js'
-      assert_select 'script:nth(3)[src=?]', '/assets/views/pages/_header-26f6510bf15bc4da.js'
+      assert_select 'script:nth(1)[src=?]', '/frails/views/layouts/application-26f6510bf15bc4da.js'
+      assert_select 'script:nth(2)[src=?]', '/frails/views/pages/home-26f6510bf15bc4da.js'
+      assert_select 'script:nth(3)[src=?]', '/frails/views/pages/_header-26f6510bf15bc4da.js'
     end
   end
 
@@ -47,8 +47,8 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'body' do
       # Order matters here, so layout, then view, then partials.
-      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application-26f6510bf15bc4da.js'
-      assert_select 'script:nth(2)[src=?]', '/assets/views/pages/_header-26f6510bf15bc4da.js'
+      assert_select 'script:nth(1)[src=?]', '/frails/views/layouts/application-26f6510bf15bc4da.js'
+      assert_select 'script:nth(2)[src=?]', '/frails/views/pages/_header-26f6510bf15bc4da.js'
     end
   end
 

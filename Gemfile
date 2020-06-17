@@ -20,6 +20,11 @@ gem 'rubocop', require: false, group: :development
 
 group :test do
   gem 'byebug'
+  gem 'ruby-debug-ide'
+  gem 'debase'
   gem 'm'
   gem 'minitest', '~> 5.0'
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
 end
