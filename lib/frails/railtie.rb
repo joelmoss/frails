@@ -28,10 +28,10 @@ class Frails::Engine < ::Rails::Engine
       require 'frails/monkey/action_view/partial_renderer'
       require 'frails/monkey/action_view/renderer'
 
-      ActionView::AbstractRenderer.send :prepend, Frails::Monkey::ActionView::AbstractRenderer
-      ActionView::TemplateRenderer.send :prepend, Frails::Monkey::ActionView::TemplateRenderer
-      ActionView::PartialRenderer.send :prepend, Frails::Monkey::ActionView::PartialRenderer
-      ActionView::Renderer.send :prepend, Frails::Monkey::ActionView::Renderer
+      ActionView::AbstractRenderer.prepend Frails::Monkey::ActionView::AbstractRenderer
+      ActionView::TemplateRenderer.prepend Frails::Monkey::ActionView::TemplateRenderer
+      ActionView::PartialRenderer.prepend Frails::Monkey::ActionView::PartialRenderer
+      ActionView::Renderer.prepend Frails::Monkey::ActionView::Renderer
 
       include Frails::Helper
     end

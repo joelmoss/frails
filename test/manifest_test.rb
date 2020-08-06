@@ -16,7 +16,8 @@ class ManifestTest < Minitest::Test
   end
 
   def test_lookup_success!
-    assert_equal '/assets/bootstrap-300631c4f0e0f9c865bc.js', Frails.manifest.lookup!('bootstrap.js')
+    assert_equal '/assets/bootstrap-300631c4f0e0f9c865bc.js',
+                 Frails.manifest.lookup!('bootstrap.js')
   end
 
   def test_lookup_nil

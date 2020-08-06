@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Frails::Helper
+  # rubocop:disable Metrics/AbcSize
   def render(options = {}, *locals, &block)
     sload_assets = respond_to?(:side_load_assets?) ? side_load_assets? : false
 
@@ -25,6 +26,7 @@ module Frails::Helper
                                          locals: locals.extract_options!, &block)
     end
   end
+  # rubocop:enable Metrics/AbcSize
 
   def javascript_pack_tag(*names, **options)
     return if Rails.env.test?

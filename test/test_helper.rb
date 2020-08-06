@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
-require_relative 'dummy/config/environment'
+$LOAD_PATH.unshift File.expand_path('../lib', __dir__)
+
+ENV['RAILS_ENV'] = 'development'
+
+require 'bundler/setup'
+require 'combustion'
 require 'minitest/autorun'
-require 'rails/test_help'
-require 'byebug'
+require 'mocha/minitest'
 require 'frails/component/test_helpers'
 
-Rails.env = 'production'
+Combustion.path = 'test/dummy'
+Combustion.initialize! :action_controller, :action_view do
+  config.hosts << 'www.example.com'
+end

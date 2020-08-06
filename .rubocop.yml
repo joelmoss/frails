@@ -1,11 +1,18 @@
 AllCops:
   TargetRubyVersion: 2.4
+  Exclude:
+    - test/dummy/**/*
+    - node_modules/**/*
 Style/Documentation:
   Enabled: false
 Style/ModuleFunction:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Naming/MethodParameterName:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 20
 Layout/LineLength:
   Max: 100
 Layout/IndentationConsistency:

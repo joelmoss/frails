@@ -10,7 +10,8 @@ class SideLoadTest < ActionDispatch::IntegrationTest
       # Order matters here, so layout, then view, then partials.
       assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n"
       assert_select 'style:nth(2)', text: "body {\n  color: black;\n}\n"
-      assert_select 'style:nth(3)', text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
+      assert_select 'style:nth(3)',
+                    text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
     end
   end
 
@@ -42,7 +43,8 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'head' do
       assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n" # layout
-      assert_select 'style:nth(2)', text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
+      assert_select 'style:nth(2)',
+                    text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
     end
 
     assert_select 'body' do

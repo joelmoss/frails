@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path('lib', __dir__)
-
-require 'frails/version'
+require_relative 'lib/frails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'frails'
@@ -12,14 +10,8 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'A Modern [F]ront End on [Rails] and Webpack'
   spec.homepage      = 'https://github.com/joelmoss/frails'
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  unless spec.respond_to?(:metadata)
-    raise 'RubyGems 2.0 or newer is required to protect against public gem pushes.'
-  end
-
-  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  spec.license       = 'MIT'
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
@@ -34,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'nokogiri',   '>= 1.10.4'
+  spec.add_dependency 'activesupport', '>= 6.0'
+  spec.add_dependency 'nokogiri', '>= 1.10.4'
   spec.add_dependency 'rack-proxy', '>= 0.6.5'
-  spec.add_dependency 'rails',      '>= 6.0'
 end

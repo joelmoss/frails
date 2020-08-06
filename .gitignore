@@ -13,3 +13,6 @@
 test/dummy/node_modules
 test/dummy/tmp
 test/dummy/log
+test/internal/node_modules
+test/internal/tmp
+test/internal/log

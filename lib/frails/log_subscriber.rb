@@ -27,7 +27,7 @@ module Frails
       end
 
       def rails_root
-        @root ||= "#{Rails.root}/"
+        @rails_root ||= "#{Rails.root}/"
       end
   end
 end

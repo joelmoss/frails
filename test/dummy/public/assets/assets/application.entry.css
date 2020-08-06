@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "Roboto";
+  /* src: url("../fonts/roboto.woff2") format("woff2"); */
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: "Roboto";
+  /* background: url("../images/background.png"); */
+}
+
+.hello {
+  font-size: 30px;
+}
+

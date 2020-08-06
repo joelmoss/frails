@@ -22,6 +22,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
     result
   end
 
+  # rubocop:disable Metrics/AbcSize
   def render(context, options, &block)
     @view = context
     @component = options.delete(:component)
@@ -44,6 +45,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
 
     apply_styles((result.respond_to?(:body) ? result.body : result) || nil)
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 
@@ -79,6 +81,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
       class_names.to_s.split.map { |class_name| build_ident class_name }
     end
 
+    # rubocop:disable Metrics/AbcSize
     def build_ident(local_name)
       hash_digest = Digest::MD5.hexdigest("#{stylesheet_path}+#{local_name}")[0, 6]
 
@@ -89,6 +92,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
       ident.prepend("#{stylesheet_path.dirname.to_s.tr('/', '-')}-")
       ident
     end
+    # rubocop:enable Metrics/AbcSize
 
     def stylesheet_path
       @stylesheet_path ||= begin
