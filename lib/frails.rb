@@ -4,11 +4,6 @@ require 'frails/version'
 require 'active_support/core_ext/module'
 require 'active_support/core_ext/module/attribute_accessors'
 
-# ENV['FRAILS_DEV_SERVER_PORT'] ||= '8080'
-# ENV['FRAILS_DEV_SERVER_HOST'] ||= 'localhost'
-# ENV['FRAILS_PUBLIC_OUTPUT_PATH'] ||= 'assets'
-# ENV['FRAILS_MANIFEST_PATH'] ||= 'manifest.json'
-
 module Frails
   extend self
 
@@ -20,12 +15,37 @@ module Frails
     @manifest ||= Frails::ManifestManager.new
   end
 
-  def public_output_path
-    ENV['FRAILS_PUBLIC_OUTPUT_PATH'] || 'assets'
+  # Path of where webpack build output will be emitted, relative to the Rails public directory.
+  mattr_accessor :public_output_path
+  @@public_output_path = 'assets'
+
+  # Path and name of manifest file.
+  mattr_accessor :manifest_path
+  @@manifest_path = 'manifest.json'
+
+  # Hostname where the Webpack dev webpack server should run.
+  mattr_accessor :dev_server_host
+  @@dev_server_host = 'localhost'
+
+  # Post number where the Webpack dev webpack server should run.
+  mattr_accessor :dev_server_port
+  @@dev_server_port = 8080
+
+  def self.setup
+    yield self
   end
 
-  def manifest_path
-    ENV['FRAILS_MANIFEST_PATH'] || 'manifest.json'
+  def config
+    {
+      public_output_path: @@public_output_path,
+      dev_server_host: @@dev_server_host,
+      dev_server_port: @@dev_server_port,
+      manifest_path: @@manifest_path
+    }
+  end
+
+  def config_as_json
+    config.merge({ rails_env: Rails.env }).transform_keys { |key| key.to_s.camelize :lower }.to_json
   end
 
   def components_path

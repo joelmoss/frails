@@ -62,11 +62,7 @@ class Frails::Manifest
   private
 
     def read_source(path)
-      unless Frails.dev_server.running?
-        host = ActionController::Base.helpers.compute_asset_host
-        new_path = host && path.start_with?(host) ? path.delete_prefix(host) : path
-        return Rails.public_path.join(new_path.gsub(%r{^\/}, '')).read
-      end
+      return Rails.public_path.join(path.gsub(%r{^\/}, '')).read unless Frails.dev_server.running?
 
       begin
         URI.open("http://#{Frails.dev_server.host_with_port}#{path}").read

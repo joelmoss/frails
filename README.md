@@ -68,14 +68,6 @@ module.exports = {
 }
 ```
 
-### Compilation for Production
-
-To take advantage of Rails asset host functionality, we recommend that you compile your assets using the provided Rake task:
-
-    $ rails frails:compile
-
-This will ensure that you assets respect the `asset_host` configuration.
-
 ### Rails Helpers
 
 #### `javascript_pack_tag`
@@ -194,34 +186,26 @@ module.exports = {
       {
         // Partials - modules (local)
         test: /app\/views\/.+(\/_([\w-_]+)\.css)$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
       },
       {
         // Layouts and views - no CSS modules (global)
         test: /app\/views\/.+(\/[^_]([\w-_]+)\.css)$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  }
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
 ```
 
 ## Configuration
 
-Frails is built to be as simple as possible, so has very few configuration options. But if you really must change the defaults, just set any of the following environment variables. Of course, if you do change any of these options, be sure to modify your Webpack config accordingly.
+Frails is built to be as simple as possible, so has very few configuration options:
 
-Be sure to install dotenv-flow package and add that to the very top of your primary webpack config:
-
-```javascript
-require("dotenv-flow").config();
-```
-
-### Options
-
-- `ENV['FRAILS_DEV_SERVER_PORT']` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
-- `ENV['FRAILS_DEV_SERVER_HOST']` - The HTTP host that Rails will proxy asset requests to. (default: `localhost`)
-- `ENV['FRAILS_PUBLIC_OUTPUT_PATH']` - The public path where Webpack will output its build to, relative to your app's `/public` directory. (default: `assets`)
-- `ENV['FRAILS_MANIFEST_PATH']` - Path to the produced Webpack manifest file, relative to the `public_output_path`. (default: `manifest.json`)
+- `Frails.dev_server_host` - The HTTP port that Rails will proxy asset requests to. (default: `8080`)
+- `Frails.dev_server_path` - The HTTP host that Rails will proxy asset requests to. (default: `localhost`)
+- `Frails.public_output_path` - The public path where Webpack will output its build to, relative to your app's `/public` directory. (default: `assets`)
+- `Frails.manifest_path` - Path to the produced Webpack manifest file, relative to the `public_output_path`. (default: `manifest.json`)
 
 ## Development
 
@@ -233,6 +217,6 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/joelmoss/frails.
 
-## Thanks...
+## Thanks
 
 A huge thank you goes out to the peeps behind [Webpacker](https://github.com/rails/webpacker). Frails has borrowed heavily from Webpacker, particularly for the dev server proxy and minifest code. 🙏

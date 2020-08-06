@@ -16,12 +16,7 @@ namespace :frails do
     puts 'Compiling Webpack...'
 
     ENV['RAILS_ENV'] ||= 'development'
-    env = {
-      'RAILS_ASSET_HOST' => ActionController::Base.helpers.compute_asset_host,
-      'RAILS_RELATIVE_URL_ROOT' => ActionController::Base.relative_url_root
-    }
-
-    stdout, sterr, status = Open3.capture3(env, "yarn webpack --env #{ENV['RAILS_ENV']}")
+    stdout, sterr, status = Open3.capture3({}, "yarn webpack --env #{ENV['RAILS_ENV']}")
 
     if sterr == '' && status.success?
       puts 'Frails successfully compiled 🎉'

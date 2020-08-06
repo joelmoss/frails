@@ -3,14 +3,24 @@
   "version": "0.3.0",
   "description": "A Modern [F]ront End on [Rails] and Webpack",
   "main": "index.js",
-  "files": [
-    "package"
-  ],
   "repository": "git@github.com:joelmoss/frails.git",
   "author": "Joel Moss <joel@developwithstyle.com>",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "clearMocks": true,
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "glob": "^7.1.4",
     "lodash.has": "^4.5.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-jest": "^26.0.1",
+    "jest": "^26.2.2"
   }
 }

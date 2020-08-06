@@ -26,13 +26,13 @@ class HelperTest < ActionView::TestCase
   end
 
   def test_pack_path_with_custom_manifest_from_env
-    orig = ENV['FRAILS_MANIFEST_PATH']
+    orig = Frails.manifest_path
 
-    ENV['FRAILS_MANIFEST_PATH'] = 'server.json'
+    Frails.manifest_path = 'server.json'
     assert_equal '/assets/server/bootstrap-300631c4f0e0f9c865bc.js',
                  pack_path('bootstrap.js')
 
-    ENV['FRAILS_MANIFEST_PATH'] = orig
+    Frails.manifest_path = orig
   end
 
   def test_image_pack_tag
