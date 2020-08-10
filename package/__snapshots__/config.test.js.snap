@@ -2,9 +2,9 @@
 
 exports[`config config 1`] = `
 Object {
-  "absolutePublicPath": "/Users/joelmoss/dev/frails/test/dummy/public/frails",
-  "appPath": "/Users/joelmoss/dev/frails/test/dummy/app",
+  "absolutePublicPath": "/Users/joelmoss/test/dummy/public/frails",
+  "appPath": "/Users/joelmoss/test/dummy/app",
   "publicOutputPath": "frails",
-  "rootPath": "/Users/joelmoss/dev/frails/test/dummy",
+  "rootPath": "/Users/joelmoss/test/dummy",
 }
 `;

@@ -1,11 +1,8 @@
 const spawnSync = require("child_process").spawnSync;
 const path = require("path");
 
-const isTest = process.env.NODE_ENV === "test";
 const configFromRails = railsRun("print Frails.config_as_json");
-const rootPath = isTest
-  ? path.join(process.cwd(), "test/dummy")
-  : process.cwd();
+const rootPath = process.cwd();
 
 module.exports = {
   ...configFromRails,
@@ -20,12 +17,6 @@ module.exports = {
 };
 
 function railsRun(argument) {
-  if (isTest) {
-    return {
-      publicOutputPath: "frails",
-    };
-  }
-
   const result = spawnSync("./bin/rails", ["runner", argument]);
 
   if (result.status === 0) {
