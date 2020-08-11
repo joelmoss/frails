@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class ManifestTest < Minitest::Test
+  include SilenceLogger
+
   def test_lookup_exception!
     path = File.join(File.dirname(__FILE__), 'dummy/public/assets', 'manifest.json')
     manifest_path = File.expand_path(path.to_s)

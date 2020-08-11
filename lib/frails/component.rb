@@ -3,6 +3,9 @@
 module Frails::Component
 end
 
+require 'action_view'
+require 'active_support/dependencies/autoload'
+
 module ActionView
   extend ActiveSupport::Autoload
 

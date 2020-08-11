@@ -19,7 +19,9 @@
   },
   "dependencies": {
     "glob": "^7.1.4",
-    "lodash.has": "^4.5.2"
+    "lodash.has": "^4.5.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

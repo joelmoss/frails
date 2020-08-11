@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class ReactComponentTest < ActionDispatch::IntegrationTest
+  include SilenceLogger
+
   test 'react' do
     get '/react'
 

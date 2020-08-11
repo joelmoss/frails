@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class SideLoadTest < ActionDispatch::IntegrationTest
+  include SilenceLogger
+
   test 'styles' do
     get '/'
 
