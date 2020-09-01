@@ -17,7 +17,7 @@ PLUS...
 
 ## Installation
 
-Frails is designed to work only within a Rails application, so must be installed in an existing Rails app. It also requires Node.js and a valid `package.json` file in your app root.
+Frails is designed to work only within a Rails application, so must be installed in an existing Rails app. It also requires Node.js, Yarn and a valid `package.json` file in your app root.
 
 Add this line to your application's Gemfile:
 
@@ -136,8 +136,8 @@ Make sure you yield the side loaded CSS and JS tags; `<%= yield :side_loaded_css
 </html>
 ```
 
-CSS is included in-line for faster renders, and JS is included as <script src="..."> tags. Check out
-`./package/side_load.js` for the webpack config needed to make this work.
+CSS is included in-line for faster renders, and JS is included as `<script src="...">` tags. Check
+out `./package/side_load.js` for the webpack config needed to make this work.
 
 #### Partials and CSS Modules
 

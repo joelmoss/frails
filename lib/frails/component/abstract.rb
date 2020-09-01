@@ -4,6 +4,7 @@ class Frails::Component::Abstract
   include ActiveSupport::Callbacks
 
   define_callbacks :render
+  attr_reader :path
 
   def initialize(view, path, options)
     @view = view

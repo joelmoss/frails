@@ -5,13 +5,15 @@ require 'frails/utils'
 class Frails::Component::ReactRenderer
   include Frails::Component::RendererConcerns
 
-  def render(context, options, &block)
+  attr_reader :presenter
+
+  def initialize(context, options)
     @view = context
     @component = options.delete(:component)
+    @presenter = presenter_class.new(@view, @component, options)
+  end
 
-    klass = presenter_class
-    @presenter = klass.new(@view, @component, options)
-
+  def render(&block)
     @children = @view.capture(&block) if block_given?
 
     render_with_callbacks || nil

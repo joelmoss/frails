@@ -23,7 +23,7 @@ module Frails
           component = options[:component].to_s
 
           result = if Frails.components_path.join(component, 'index.entry.jsx').exist?
-                     Frails::Component::ReactRenderer.new.render(context, options, &block)
+                     Frails::Component::ReactRenderer.new(context, options).render(&block)
                    else
                      Frails::Component::Renderer.new(@lookup_context)
                                                 .render(context, options, &block)
