@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createConfig returns object 1`] = `
+Object {
+  "entry": "./app/assets/application.js",
+  "mode": "development",
+  "output": Object {
+    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "publicPath": "/assets/",
+  },
+}
+`;

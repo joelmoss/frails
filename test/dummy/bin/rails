@@ -1,0 +1,12 @@
+#! /usr/bin/env ruby
+# frozen_string_literal: true
+
+require 'bundler/setup'
+Bundler.require :default, :development
+
+APP_PATH = File.expand_path('../../../lib/frails/railtie', __dir__)
+Combustion.initialize! :action_controller, :action_view do
+  config.hosts << 'www.example.com'
+end
+
+require 'rails/commands'

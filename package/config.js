@@ -1,26 +1,33 @@
 const spawnSync = require("child_process").spawnSync;
 const path = require("path");
 
-const ioDelimiter = "__FRAILS_RAILS_RUNNER_DELIMETER__";
-const configFromRails = railsRun(
-  `puts "${ioDelimiter}#{Frails.config_as_json}${ioDelimiter}"`
-);
 const rootPath = process.cwd();
+const target = { rootPath, appPath: path.join(rootPath, "app") };
+const handler = {
+  get: function (target, prop, receiver) {
+    // Return the prop if it already exists.
+    if (Object.keys(target).includes(prop)) return target[prop];
 
-module.exports = {
-  ...configFromRails,
+    // Return the prop if found in the Rails config cache.
+    const config = getConfigFromRails();
+    if (Object.keys(config).includes(prop)) return config[prop];
 
-  rootPath,
-  appPath: path.join(rootPath, "app"),
-  absolutePublicPath: path.join(
-    rootPath,
-    "public",
-    configFromRails.publicOutputPath
-  ),
+    return Reflect.get(...arguments);
+  },
 };
+const config = new Proxy(target, handler);
 
-function railsRun(argument) {
-  const result = spawnSync("./bin/rails", ["runner", argument]);
+module.exports = config;
+
+function getConfigFromRails() {
+  if (configFromRails) return configFromRails;
+
+  const ioDelimiter = "__FRAILS_RAILS_RUNNER_DELIMETER__";
+
+  const result = spawnSync("./bin/rails", [
+    "runner",
+    `puts "${ioDelimiter}#{Frails.config_as_json}${ioDelimiter}"`,
+  ]);
 
   if (result.status === 0) {
     // Output is delimited to filter out unwanted warnings or other output
@@ -28,13 +35,20 @@ function railsRun(argument) {
     const sourceRegex = new RegExp(ioDelimiter + "([\\s\\S]+)" + ioDelimiter);
     const matches = result.stdout.toString().match(sourceRegex);
     if (matches) {
-      return JSON.parse(matches[1]);
+      configFromRails = JSON.parse(matches[1]);
     } else {
       throw "Rails runner failed having been unable to parse the output.";
     }
   } else if (result.signal !== null) {
     throw `Rails runner was terminated with signal: ${result.signal}`;
+  } else if (result.error) {
+    throw `Rails runner failed with '${result.error.toString()}'.`;
   } else {
     throw `Rails runner failed with '${result.stderr.toString()}'.`;
   }
+
+  return configFromRails;
 }
+
+// Cache the rails config.
+let configFromRails = undefined;
