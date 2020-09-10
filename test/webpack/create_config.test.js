@@ -1,3 +1,5 @@
+const path = require('path')
+
 const createConfig = require('../../package/webpack/create_config')
 
 describe('createConfig', () => {

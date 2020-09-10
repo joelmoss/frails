@@ -25,6 +25,12 @@
   "jest": {
     "clearMocks": true,
     "testEnvironment": "node",
+    "snapshotSerializers": [
+      "jest-serializer-path"
+    ],
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ],
     "setupFiles": [
       "jest-plugin-context/setup",
       "<rootDir>/test/support/cwd.js"
@@ -44,6 +50,8 @@
     "babel-jest": "^26.0.1",
     "debug": "^4.1.1",
     "jest": "^26.2.2",
-    "jest-plugin-context": "^2.9.0"
+    "jest-extended": "^0.11.5",
+    "jest-plugin-context": "^2.9.0",
+    "jest-serializer-path": "^0.1.15"
   }
 }

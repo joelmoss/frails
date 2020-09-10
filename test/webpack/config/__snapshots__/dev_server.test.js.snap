@@ -2,7 +2,7 @@
 
 exports[`config.devServer boolean 1`] = `
 Object {
-  "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+  "contentBase": "<PROJECT_ROOT>/public/assets",
   "port": 8080,
   "public": "localhost:8080",
   "publicPath": "/assets/",
@@ -14,7 +14,7 @@ Object {
 
 exports[`config.devServer object 1`] = `
 Object {
-  "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+  "contentBase": "<PROJECT_ROOT>/public/assets",
   "hot": true,
   "port": 8080,
   "public": "localhost:8080",

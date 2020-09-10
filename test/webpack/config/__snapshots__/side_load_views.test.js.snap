@@ -3,7 +3,7 @@
 exports[`config.sideLoadViews boolean 1`] = `
 Object {
   "devServer": Object {
-    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
     "public": "localhost:8080",
     "publicPath": "/assets/",
@@ -14,8 +14,13 @@ Object {
   "entry": Object {},
   "mode": "development",
   "output": Object {
-    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
+  },
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+    },
   },
 }
 `;
@@ -23,7 +28,7 @@ Object {
 exports[`config.sideLoadViews boolean 2`] = `
 Object {
   "devServer": Object {
-    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
     "public": "localhost:8080",
     "publicPath": "/assets/",
@@ -33,26 +38,31 @@ Object {
   },
   "entry": Object {
     "views/layouts/application": Array [
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/application.css",
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/application.js",
+      "<PROJECT_ROOT>/app/views/layouts/application.css",
+      "<PROJECT_ROOT>/app/views/layouts/application.js",
     ],
     "views/layouts/no_side": Array [
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/no_side.css",
+      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
     ],
     "views/pages/_header": Array [
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.css",
     ],
     "views/pages/_post": Array [
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/_post.css",
+      "<PROJECT_ROOT>/app/views/pages/_post.css",
     ],
     "views/pages/home": Array [
-      "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/home.css",
+      "<PROJECT_ROOT>/app/views/pages/home.css",
     ],
   },
   "mode": "development",
   "output": Object {
-    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
+  },
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+    },
   },
 }
 `;
@@ -61,20 +71,20 @@ exports[`config.sideLoadViews existing entry prop 1`] = `
 Object {
   "some/path": "some/path.js",
   "views/layouts/application": Array [
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/application.css",
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/application.js",
+    "<PROJECT_ROOT>/app/views/layouts/application.css",
+    "<PROJECT_ROOT>/app/views/layouts/application.js",
   ],
   "views/layouts/no_side": Array [
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/layouts/no_side.css",
+    "<PROJECT_ROOT>/app/views/layouts/no_side.css",
   ],
   "views/pages/_header": Array [
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/_header.css",
+    "<PROJECT_ROOT>/app/views/pages/_header.css",
   ],
   "views/pages/_post": Array [
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/_post.css",
+    "<PROJECT_ROOT>/app/views/pages/_post.css",
   ],
   "views/pages/home": Array [
-    "/Users/joelmoss/dev/frails/test/dummy/app/views/pages/home.css",
+    "<PROJECT_ROOT>/app/views/pages/home.css",
   ],
 }
 `;

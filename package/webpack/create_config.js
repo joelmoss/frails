@@ -2,6 +2,7 @@ const path = require('path')
 const debug = require('debug')('frails')
 const { default: merge } = require('webpack-merge')
 const validate = require('schema-utils')
+const webpack = require('webpack')
 
 const frailsConfig = require('../config')
 const applyDevServer = require('./config/dev_server')
@@ -29,6 +30,11 @@ module.exports = (options = {}) => {
       output: {
         path: frailsConfig.absolutePublicPath,
         publicPath: `/${frailsConfig.publicOutputPath}/`
+      },
+      resolve: {
+        alias: {
+          assets: path.resolve(frailsConfig.appPath, 'assets')
+        }
       }
     }
   )
