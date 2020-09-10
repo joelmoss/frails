@@ -4,6 +4,11 @@ const { merge } = require('webpack-merge')
 const frailsConfig = require('../../config')
 
 module.exports = baseConfig => {
+  if (typeof baseConfig.devServer === 'undefined') {
+    // webpack-dev-server is enabled by default in development.
+    baseConfig.devServer = process.env.NODE_ENV === 'development'
+  }
+
   if (!baseConfig.devServer) {
     delete baseConfig.devServer
     return

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`config.sideLoadAssets boolean 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": "./app/assets/application.js",
+  "mode": "development",
+  "output": Object {
+    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "publicPath": "/assets/",
+  },
+}
+`;
+
+exports[`config.sideLoadAssets boolean 2`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": "./app/assets/application.js",
+  "mode": "development",
+  "output": Object {
+    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "publicPath": "/assets/",
+  },
+  "sideLoadAssets": true,
+}
+`;
+
+exports[`config.sideLoadViews boolean 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": "./app/assets/application.js",
+  "mode": "development",
+  "output": Object {
+    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "publicPath": "/assets/",
+  },
+  "sideLoadAssets": true,
+  "sideLoadViews": false,
+}
+`;
+
+exports[`config.sideLoadViews boolean 2`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": "./app/assets/application.js",
+  "mode": "development",
+  "output": Object {
+    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "publicPath": "/assets/",
+  },
+  "sideLoadAssets": true,
+  "sideLoadViews": true,
+}
+`;

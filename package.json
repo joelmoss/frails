@@ -31,7 +31,7 @@
     ]
   },
   "dependencies": {
-    "glob": "^7.1.4",
+    "fast-glob": "^3.2.4",
     "lodash": "^4.17.20",
     "schema-utils": "^2.7.1",
     "webpack": "^4.44.1",

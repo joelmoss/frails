@@ -2,33 +2,26 @@
 
 exports[`config.devServer boolean 1`] = `
 Object {
-  "entry": "./app/assets/application.js",
-  "mode": "development",
-  "output": Object {
-    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
-    "publicPath": "/assets/",
+  "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+  "port": 8080,
+  "public": "localhost:8080",
+  "publicPath": "/assets/",
+  "watchOptions": Object {
+    "ignored": "**/node_modules/**",
   },
 }
 `;
 
 exports[`config.devServer object 1`] = `
 Object {
-  "devServer": Object {
-    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
-    "hot": true,
-    "port": 8080,
-    "public": "localhost:8080",
-    "publicPath": "/assets/",
-    "watchOptions": Object {
-      "ignored": "**/node_modules/**",
-      "poll": true,
-    },
-  },
-  "entry": "./app/assets/application.js",
-  "mode": "development",
-  "output": Object {
-    "path": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
-    "publicPath": "/assets/",
+  "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+  "hot": true,
+  "port": 8080,
+  "public": "localhost:8080",
+  "publicPath": "/assets/",
+  "watchOptions": Object {
+    "ignored": "**/node_modules/**",
+    "poll": true,
   },
 }
 `;

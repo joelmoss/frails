@@ -1,10 +1,11 @@
 const path = require('path')
 const debug = require('debug')('frails')
+const { default: merge } = require('webpack-merge')
+const validate = require('schema-utils')
 
 const frailsConfig = require('../config')
 const applyDevServer = require('./config/dev_server')
-const { default: merge } = require('webpack-merge')
-const validate = require('schema-utils')
+const applySideLoadAssets = require('./config/side_load_views')
 const schema = require('./schema.json')
 
 module.exports = (options = {}) => {
@@ -17,9 +18,7 @@ module.exports = (options = {}) => {
     // Default config.
     {
       mode: process.env.NODE_ENV,
-
-      // webpack-dev-server is enabled by default in development.
-      devServer: process.env.NODE_ENV === 'development',
+      entry: {},
 
       // Merge with user-provided options.
       ...options
@@ -27,7 +26,6 @@ module.exports = (options = {}) => {
 
     // Required config - this should be untouched.
     {
-      entry: './app/assets/application.js',
       output: {
         path: frailsConfig.absolutePublicPath,
         publicPath: `/${frailsConfig.publicOutputPath}/`
@@ -36,6 +34,7 @@ module.exports = (options = {}) => {
   )
 
   applyDevServer(config)
+  applySideLoadAssets(config)
 
   debug(config)
 

@@ -9,6 +9,10 @@
         },
         { "type": "object" }
       ]
+    },
+    "sideLoadViews": {
+      "description": "Side load views with Javascript and CSS assets. Enabled by default (`true`).",
+      "type": "boolean"
     }
   }
 }
