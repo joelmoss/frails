@@ -10,6 +10,7 @@ Frails is a modern asset pipeline for [Rails](https://rubyonrails.org), built on
 
 PLUS...
 
+- Simple asset loading for JS, CSS and images/fonts.
 - Side loaded layouts, views and partials.
 - Components
   - React + SSR

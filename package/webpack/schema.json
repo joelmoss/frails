@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "devServer": {
+      "anyOf": [
+        {
+          "description": "Enabled in development mode, but can be enabled/disabled completely by setting to `true`/`false`",
+          "type": "boolean"
+        },
+        { "type": "object" }
+      ]
+    }
+  }
+}

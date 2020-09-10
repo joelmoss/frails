@@ -1,3 +1,5 @@
-const { webpack } = require("frails");
+const { webpack } = require('frails')
 
-module.exports = webpack.createConfig;
+module.exports = webpack.createConfig({
+  name: 'joel'
+})

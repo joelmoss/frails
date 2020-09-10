@@ -1,16 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createConfig returns object 1`] = `
+exports[`config.devServer boolean 1`] = `
 Object {
-  "devServer": Object {
-    "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
-    "port": 8080,
-    "public": "localhost:8080",
-    "publicPath": "/assets/",
-    "watchOptions": Object {
-      "ignored": "**/node_modules/**",
-    },
-  },
   "entry": "./app/assets/application.js",
   "mode": "development",
   "output": Object {
@@ -20,18 +11,19 @@ Object {
 }
 `;
 
-exports[`createConfig root prop 1`] = `
+exports[`config.devServer object 1`] = `
 Object {
   "devServer": Object {
     "contentBase": "/Users/joelmoss/dev/frails/test/dummy/public/assets",
+    "hot": true,
     "port": 8080,
     "public": "localhost:8080",
     "publicPath": "/assets/",
     "watchOptions": Object {
       "ignored": "**/node_modules/**",
+      "poll": true,
     },
   },
-  "devtool": "cheap-module-eval-source-map",
   "entry": "./app/assets/application.js",
   "mode": "development",
   "output": Object {
