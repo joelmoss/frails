@@ -17,6 +17,23 @@ Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
   },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
   "resolve": Object {
     "alias": Object {
       "assets": "<PROJECT_ROOT>/app/assets",
@@ -59,6 +76,23 @@ Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
   },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
   "resolve": Object {
     "alias": Object {
       "assets": "<PROJECT_ROOT>/app/assets",

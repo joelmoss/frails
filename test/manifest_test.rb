@@ -16,8 +16,8 @@ class ManifestTest < Minitest::Test
   end
 
   def test_lookup_success!
-    assert_equal '/assets/bootstrap-300631c4f0e0f9c865bc.js',
-                 Frails.manifest.lookup!('bootstrap.js')
+    assert_equal '/assets/views/layouts/application.js',
+                 Frails.manifest.lookup!('views/layouts/application.js')
   end
 
   def test_lookup_nil
@@ -25,10 +25,12 @@ class ManifestTest < Minitest::Test
   end
 
   def test_lookup_success
-    assert_equal '/assets/bootstrap-300631c4f0e0f9c865bc.js', Frails.manifest.lookup('bootstrap.js')
+    assert_equal '/assets/views/layouts/application.js',
+                 Frails.manifest.lookup('views/layouts/application.js')
   end
 
   def test_lookup_custom_manifest
+    skip 'TODO'
     assert_equal '/assets/server/bootstrap-300631c4f0e0f9c865bc.js',
                  Frails.manifest['server.json'].lookup('bootstrap.js')
   end

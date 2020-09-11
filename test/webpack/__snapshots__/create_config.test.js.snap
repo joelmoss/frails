@@ -34,49 +34,23 @@ Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
   },
-  "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
     },
-  },
-}
-`;
-
-exports[`createConfig root prop 1`] = `
-Object {
-  "devServer": Object {
-    "contentBase": "<PROJECT_ROOT>/public/assets",
-    "port": 8080,
-    "public": "localhost:8080",
-    "publicPath": "/assets/",
-    "watchOptions": Object {
-      "ignored": "**/node_modules/**",
-    },
-  },
-  "devtool": "cheap-module-eval-source-map",
-  "entry": Object {
-    "views/layouts/application": Array [
-      "<PROJECT_ROOT>/app/views/layouts/application.css",
-      "<PROJECT_ROOT>/app/views/layouts/application.js",
-    ],
-    "views/layouts/no_side": Array [
-      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
-    ],
-    "views/pages/_header": Array [
-      "<PROJECT_ROOT>/app/views/pages/_header.css",
-    ],
-    "views/pages/_post": Array [
-      "<PROJECT_ROOT>/app/views/pages/_post.css",
-    ],
-    "views/pages/home": Array [
-      "<PROJECT_ROOT>/app/views/pages/home.css",
-    ],
-  },
-  "mode": "development",
-  "output": Object {
-    "path": "<PROJECT_ROOT>/public/assets",
-    "publicPath": "/assets/",
-  },
+    Object {},
+  ],
   "resolve": Object {
     "alias": Object {
       "assets": "<PROJECT_ROOT>/app/assets",

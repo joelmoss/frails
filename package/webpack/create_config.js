@@ -3,6 +3,8 @@ const debug = require('debug')('frails')
 const { default: merge } = require('webpack-merge')
 const validate = require('schema-utils')
 const webpack = require('webpack')
+const WebpackAssetsManifest = require('webpack-assets-manifest')
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 
 const frailsConfig = require('../config')
 const applyDevServer = require('./config/dev_server')
@@ -35,7 +37,16 @@ module.exports = (options = {}) => {
         alias: {
           assets: path.resolve(frailsConfig.appPath, 'assets')
         }
-      }
+      },
+      plugins: [
+        new FixStyleOnlyEntriesPlugin(),
+        new WebpackAssetsManifest({
+          writeToDisk: true,
+          entrypoints: true,
+          sortManifest: false,
+          publicPath: true
+        })
+      ]
     }
   )
 
