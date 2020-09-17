@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "optimize-css-assets-webpack-plugin": "^5.0.4",
-    "frails": "file:../.."
+    "frails": "file:../..",
+    "optimize-css-assets-webpack-plugin": "^5.0.4"
   },
   "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }
 }

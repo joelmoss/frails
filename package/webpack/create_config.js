@@ -1,6 +1,6 @@
 const path = require('path')
 const debug = require('debug')('frails')
-const { default: merge } = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const validate = require('schema-utils')
 const webpack = require('webpack')
 const WebpackAssetsManifest = require('webpack-assets-manifest')

@@ -36,6 +36,10 @@
       "<rootDir>/test/support/cwd.js"
     ]
   },
+  "peerDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
   "dependencies": {
     "css-loader": "^4.3.0",
     "fast-glob": "^3.2.4",
