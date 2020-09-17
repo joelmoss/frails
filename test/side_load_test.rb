@@ -8,10 +8,9 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'head' do
       # Order matters here, so layout, then view, then partials.
-      assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n"
-      assert_select 'style:nth(2)', text: "body {\n  color: black;\n}\n"
-      assert_select 'style:nth(3)',
-                    text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
+      assert_select 'style:nth(1)', text: 'body{color:red}'
+      assert_select 'style:nth(2)', text: 'body{color:#000}'
+      assert_select 'style:nth(3)', text: '.title-7e96e3{color:#00f}'
     end
   end
 
@@ -26,9 +25,9 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'body' do
       # Order matters here, so layout, then view, then partials.
-      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application-26f6510bf15bc4da.js'
-      assert_select 'script:nth(2)[src=?]', '/assets/views/pages/home-26f6510bf15bc4da.js'
-      assert_select 'script:nth(3)[src=?]', '/assets/views/pages/_header-26f6510bf15bc4da.js'
+      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application.js'
+      # assert_select 'script:nth(2)[src=?]', '/assets/views/pages/home-26f6510bf15bc4da.js'
+      # assert_select 'script:nth(3)[src=?]', '/assets/views/pages/_header-26f6510bf15bc4da.js'
     end
   end
 
@@ -42,15 +41,14 @@ class SideLoadTest < ActionDispatch::IntegrationTest
     get '/about'
 
     assert_select 'head' do
-      assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n" # layout
-      assert_select 'style:nth(2)',
-                    text: ".app-views-pages-_header__title___abc123 {\n  color: blue;\n}\n"
+      assert_select 'style:nth(1)', text: 'body{color:red}' # layout
+      assert_select 'style:nth(2)', text: '.title-7e96e3{color:#00f}'
     end
 
     assert_select 'body' do
       # Order matters here, so layout, then view, then partials.
-      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application-26f6510bf15bc4da.js'
-      assert_select 'script:nth(2)[src=?]', '/assets/views/pages/_header-26f6510bf15bc4da.js'
+      assert_select 'script:nth(1)[src=?]', '/assets/views/layouts/application.js'
+      assert_select 'script:nth(2)[src=?]', '/assets/views/pages/_header.js'
     end
   end
 
@@ -58,7 +56,7 @@ class SideLoadTest < ActionDispatch::IntegrationTest
     get '/partial_no_css'
 
     assert_select 'head' do
-      assert_select 'style', count: 1, text: "body {\n  color: red;\n}\n"
+      assert_select 'style', count: 1, text: 'body{color:red}'
     end
     assert_select 'h1', 'title'
     assert_select 'h2', 'subtitle'
@@ -68,10 +66,10 @@ class SideLoadTest < ActionDispatch::IntegrationTest
     get '/partial_collection'
 
     assert_select 'head' do
-      assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n"
-      assert_select 'style:nth(2)', text: ".title-e792c6 {\n  font-size: 20px;\n}\n"
+      assert_select 'style:nth(1)', text: 'body{color:red}'
+      assert_select 'style:nth(2)', text: '.title-afcba4{font-size:20px}'
     end
-    assert_select 'h1.title-e792c6:nth(1)', 'title1'
-    assert_select 'h1.title-e792c6:nth(2)', 'title2'
+    assert_select 'h1.title-afcba4:nth(1)', 'title1'
+    assert_select 'h1.title-afcba4:nth(2)', 'title2'
   end
 end

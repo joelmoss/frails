@@ -16,6 +16,16 @@ PLUS...
   - React + SSR
   - Ruby/HTML
 
+## IN DEVELOPMENT THOUGHTS
+
+### Example Rails directory structure
+
+- `app/views` - Side loaded assets (JS and CSS).
+- `app/components` - Components
+- `lib` - Library and utility code (including, but not limited to JS and CSS)
+
+---
+
 ## Installation
 
 Frails is designed to work only within a Rails application, so must be installed in an existing Rails app. It also requires Node.js, Yarn and a valid `package.json` file in your app root.
@@ -187,16 +197,16 @@ module.exports = {
       {
         // Partials - modules (local)
         test: /app\/views\/.+(\/_([\w-_]+)\.css)$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader']
       },
       {
         // Layouts and views - no CSS modules (global)
         test: /app\/views\/.+(\/[^_]([\w-_]+)\.css)$/,
-        use: ["style-loader", "css-loader"],
-      },
-    ],
-  },
-};
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  }
+}
 ```
 
 ## Configuration

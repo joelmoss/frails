@@ -2,8 +2,11 @@
   "name": "test_app",
   "version": "1.0.0",
   "private": true,
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "frails": "file:../.."
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
   }
 }

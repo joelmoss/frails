@@ -48,7 +48,7 @@ module Frails
         end
 
         def build_ident(local_name, path)
-          hash_digest = Digest::MD5.hexdigest("#{path}+#{local_name}")[0, 6]
+          hash_digest = Digest::MD5.hexdigest("#{path}\x00#{local_name}")[0, 6]
 
           return "#{local_name}-#{hash_digest}" unless Frails.dev_server.running?
 

@@ -17,9 +17,6 @@ module Frails::Component::RendererConcerns
     end
 
     def render_inline_styles
-      # TODO: We don't yet have support for compiling Webpack for tests.
-      return if Rails.env.test?
-
       # Don't inline the styles if already inlined.
       return if inlined_stylesheets.include?(@component)
 

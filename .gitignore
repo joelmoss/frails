@@ -13,4 +13,6 @@
 test/dummy/node_modules
 test/dummy/tmp
 test/dummy/log
-test/dummy/public
+test/dummy/spec
+test/dummy/public/*
+!test/dummy/public/favicon.ico

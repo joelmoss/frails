@@ -9,6 +9,7 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 const frailsConfig = require('../config')
 const applyDevServer = require('./config/dev_server')
 const applySideLoadAssets = require('./config/side_load_views')
+const applyCss = require('./config/css')
 const schema = require('./schema.json')
 
 module.exports = (options = {}) => {
@@ -52,6 +53,7 @@ module.exports = (options = {}) => {
 
   applyDevServer(config)
   applySideLoadAssets(config)
+  applyCss(config)
 
   debug(config)
 

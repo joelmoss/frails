@@ -13,7 +13,15 @@ const handler = {
     if (Object.keys(config).includes(prop)) return (target[prop] = config[prop])
 
     if (prop === 'absolutePublicPath') {
-      return (target[prop] = path.join(rootPath, 'public', config.publicOutputPath))
+      return (target.absolutePublicPath = path.join(rootPath, 'public', config.publicOutputPath))
+    }
+
+    if (prop === 'cssLocalIdentName') {
+      // The local ident name required for loading component styles.
+      target.cssLocalIdentName =
+        config.railsEnv == 'development'
+          ? '[path][name]__[local]___[md5:hash:hex:6]'
+          : '[local]-[md5:hash:hex:6]'
     }
 
     return Reflect.get(...arguments)

@@ -21,6 +21,7 @@ Object {
     ],
     "views/pages/_header": Array [
       "<PROJECT_ROOT>/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.js",
     ],
     "views/pages/_post": Array [
       "<PROJECT_ROOT>/app/views/pages/_post.css",
@@ -30,6 +31,24 @@ Object {
     ],
   },
   "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "<HOME_DIR>/dev/frails/node_modules/mini-css-extract-plugin/dist/loader.js",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
   "output": Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
@@ -50,6 +69,14 @@ Object {
       },
     },
     Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
   ],
   "resolve": Object {
     "alias": Object {

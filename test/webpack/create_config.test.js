@@ -18,9 +18,10 @@ describe('createConfig', () => {
     const config = createConfig()
     const plugins = config.plugins.map(plugin => plugin.constructor.name)
 
-    expect(plugins).toIncludeAllMembers([
+    expect(plugins).toEqual([
       'WebpackFixStyleOnlyEntriesPlugin',
-      'WebpackAssetsManifest'
+      'WebpackAssetsManifest',
+      'MiniCssExtractPlugin'
     ])
   })
 
@@ -28,10 +29,11 @@ describe('createConfig', () => {
     const config = createConfig({ plugins: [new webpack.DefinePlugin({ URL: 'http://...' })] })
     const plugins = config.plugins.map(plugin => plugin.constructor.name)
 
-    expect(plugins).toIncludeAllMembers([
+    expect(plugins).toEqual([
       'DefinePlugin',
       'WebpackFixStyleOnlyEntriesPlugin',
-      'WebpackAssetsManifest'
+      'WebpackAssetsManifest',
+      'MiniCssExtractPlugin'
     ])
   })
 })
