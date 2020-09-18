@@ -26,6 +26,8 @@ class Frails::Manifest
   # Example:
   #   Frails.manifest.lookup('calendar.js') # => "/assets/calendar-1016838bab065ae1e122.js"
   def lookup(name, type: nil)
+    compile if compiling?
+
     # When using SplitChunks or RuntimeChunks the manifest hash will contain an extra object called
     # "entrypoints". When the entrypoints key is not present in the manifest, or the name is not
     # found in the entrypoints hash, it will raise a NoMethodError. If this happens, we should try
@@ -60,6 +62,14 @@ class Frails::Manifest
   end
 
   private
+
+    def compiling?
+      Frails.compile_on_demand && !Frails.dev_server.running?
+    end
+
+    def compile
+      Frails.logger.tagged('Frails') { Frails.compiler.compile }
+    end
 
     def read_source(path)
       return Rails.public_path.join(path.gsub(%r{^\/}, '')).read unless Frails.dev_server.running?

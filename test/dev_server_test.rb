@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class DevServerTest < Minitest::Test
+  include SilenceLogger
+
   def test_running?
     refute Frails.dev_server.running?
   end

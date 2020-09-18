@@ -9,6 +9,7 @@ require 'combustion'
 require 'minitest/autorun'
 require 'mocha/minitest'
 require 'frails/component/test_helpers'
+require 'support/silence_logging'
 
 Combustion.path = 'test/dummy'
 Combustion.initialize! :action_controller, :action_view do

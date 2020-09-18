@@ -3,6 +3,8 @@
 require 'test_helper'
 
 class ManifestTest < Minitest::Test
+  include SilenceLogger
+
   @@first_setup = false
 
   def setup
