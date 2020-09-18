@@ -3,6 +3,16 @@
 require 'test_helper'
 
 class ManifestTest < Minitest::Test
+  @@first_setup = false
+
+  def setup
+    unless @@first_setup
+      # TODO: run webpack
+    end
+
+    @@first_setup = true
+  end
+
   def test_lookup_exception!
     path = File.join(File.dirname(__FILE__), 'dummy/public/assets', 'manifest.json')
     manifest_path = File.expand_path(path.to_s)

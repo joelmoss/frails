@@ -36,7 +36,7 @@ module.exports = (options = {}) => {
       },
       resolve: {
         alias: {
-          assets: path.resolve(frailsConfig.appPath, 'assets')
+          lib: path.resolve(frailsConfig.rootPath, 'lib')
         }
       },
       plugins: [
