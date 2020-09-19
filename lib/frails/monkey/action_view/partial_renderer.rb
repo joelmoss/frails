@@ -50,7 +50,7 @@ module Frails
         def build_ident(local_name, path)
           hash_digest = Digest::MD5.hexdigest("#{path}\x00#{local_name}")[0, 6]
 
-          return "#{local_name}-#{hash_digest}" unless Frails.dev_server.running?
+          return "#{local_name}-#{hash_digest}" if !Rails.env.development? && !Rails.env.test?
 
           name = path.basename.sub(path.extname, '').sub('.', '-')
           ident = +"#{name}__#{local_name}___#{hash_digest}"

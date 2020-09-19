@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "frails": "file:../..",
+    "frails": "link:.yalc/frails",
     "optimize-css-assets-webpack-plugin": "^5.0.4"
   },
   "devDependencies": {

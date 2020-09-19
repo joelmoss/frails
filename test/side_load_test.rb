@@ -12,7 +12,7 @@ class SideLoadTest < ActionDispatch::IntegrationTest
       # Order matters here, so layout, then view, then partials.
       assert_select 'style:nth(1)', text: 'body{color:red}'
       assert_select 'style:nth(2)', text: 'body{color:#000}'
-      assert_select 'style:nth(3)', text: '.title-7e96e3{color:#00f}'
+      assert_select 'style:nth(3)', text: '.app-views-pages-_header__title___7e96e3{color:#00f}'
     end
   end
 
@@ -44,7 +44,7 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'head' do
       assert_select 'style:nth(1)', text: 'body{color:red}' # layout
-      assert_select 'style:nth(2)', text: '.title-7e96e3{color:#00f}'
+      assert_select 'style:nth(2)', text: '.app-views-pages-_header__title___7e96e3{color:#00f}'
     end
 
     assert_select 'body' do
@@ -69,9 +69,9 @@ class SideLoadTest < ActionDispatch::IntegrationTest
 
     assert_select 'head' do
       assert_select 'style:nth(1)', text: 'body{color:red}'
-      assert_select 'style:nth(2)', text: '.title-afcba4{font-size:20px}'
+      assert_select 'style:nth(2)', text: '.app-views-pages-_post__title___afcba4{font-size:20px}'
     end
-    assert_select 'h1.title-afcba4:nth(1)', 'title1'
-    assert_select 'h1.title-afcba4:nth(2)', 'title2'
+    assert_select 'h1.app-views-pages-_post__title___afcba4:nth(1)', 'title1'
+    assert_select 'h1.app-views-pages-_post__title___afcba4:nth(2)', 'title2'
   end
 end

@@ -80,7 +80,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "lib": "<PROJECT_ROOT>/lib",
+      "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
 }
@@ -140,7 +140,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
-      "lib": "<PROJECT_ROOT>/lib",
+      "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
 }
