@@ -3,8 +3,6 @@
 require 'test_helper'
 
 class ComponentIntegrationTest < ActionDispatch::IntegrationTest
-  include SilenceLogger
-
   test 'with css' do
     skip 'TODO'
     get '/components/template_with_css'

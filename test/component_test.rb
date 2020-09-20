@@ -3,7 +3,6 @@
 require 'test_helper'
 
 class Frails::ComponentTest < Minitest::Test
-  include SilenceLogger
   include Frails::Component::TestHelpers
 
   def test_with_template

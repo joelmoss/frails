@@ -1,8 +1,6 @@
 require 'test_helper'
 
 class CompilerTest < Minitest::Test
-  include SilenceLogger
-
   def remove_compilation_digest_path
     Frails.compiler.send(:compilation_digest_path).tap do |path|
       path.delete if path.exist?
@@ -27,23 +25,33 @@ class CompilerTest < Minitest::Test
   end
 
   def test_freshness_on_compile_success
+    org_log_level = Frails.logger.level
+    Frails.logger.level = Logger::FATAL
+
     status = OpenStruct.new(success?: true)
 
     assert Frails.compiler.stale?
-    Open3.stub :capture3, [:sterr, :stdout, status] do
+    Open3.stub :capture3, [:stdout, :stderr, status] do
       Frails.compiler.compile
       assert Frails.compiler.fresh?
     end
+
+    Frails.logger.level = org_log_level
   end
 
   def test_freshness_on_compile_fail
+    org_log_level = Frails.logger.level
+    Frails.logger.level = Logger::FATAL
+
     status = OpenStruct.new(success?: false)
 
     assert Frails.compiler.stale?
-    Open3.stub :capture3, [:sterr, :stdout, status] do
+    Open3.stub :capture3, [:stdout, :stderr, status] do
       Frails.compiler.compile
       assert Frails.compiler.fresh?
     end
+
+    Frails.logger.level = org_log_level
   end
 
   def test_compilation_digest_path

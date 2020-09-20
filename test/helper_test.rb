@@ -3,8 +3,6 @@
 require 'test_helper'
 
 class HelperTest < ActionView::TestCase
-  include SilenceLogger
-  
   tests Frails::Helper
 
   def setup

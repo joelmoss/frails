@@ -9,6 +9,16 @@ class Frails::Engine < ::Rails::Engine
     app.middleware.insert_before 0, Frails::DevServerProxy, ssl_verify_none: true
   end
 
+  initializer 'frails.logger' do
+    config.after_initialize do
+      Frails.logger = if ::Rails.logger.respond_to?(:tagged)
+                        ::Rails.logger
+                      else
+                        ActiveSupport::TaggedLogging.new(::Rails.logger)
+                      end
+    end
+  end
+
   initializer 'frails' do
     ActiveSupport.on_load :action_controller do
       require 'frails/side_load_assets'

@@ -9,9 +9,12 @@ require 'combustion'
 require 'minitest/autorun'
 require 'mocha/minitest'
 require 'frails/component/test_helpers'
-require 'support/silence_logging'
 
 Combustion.path = 'test/dummy'
 Combustion.initialize! :action_controller, :action_view do
   config.hosts << 'www.example.com'
 end
+
+# Quiet down logging.
+Frails.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT))
+Frails.logger.level = Logger::WARN

@@ -73,10 +73,8 @@ class Frails::Compiler
 
     def watched_paths
       [
-        'app/assets/**/*',
-        'app/views/**/*.{js,css}',
-        'yarn.lock', 'package.json', 'webpack.config.js',
-        'config/webpack/**/*'
+        'app/{lib,views}/**/*.{js,css}',
+        'yarn.lock', 'package.json', 'webpack.config.js'
       ].freeze
     end
 

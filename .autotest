@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
 Autotest.add_hook :initialize do |at|
-  at.add_exception %r{^\./test/dummy}
-  at.add_exception %r{^\./test/internal/(?:log|public|tmp|app/assets)}
+  at.add_exception %r{^\./test/dummy/(?:log|public|tmp|spec)}
 end
