@@ -39,7 +39,9 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
       else
         options[:locals] = @presenter.locals
         options[:locals][:children] = @children
-        super context, options, block
+
+        # Make sure that the path is not prefixed with controller namespace.
+        partial_path_without_prefix { super context, options, block }
       end
     end
 
@@ -48,6 +50,17 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
   # rubocop:enable Metrics/AbcSize
 
   private
+
+    # Accepts a block, and sets `prefix_partial_path_with_controller_namespace` to false before
+    # calling the bloock; reverting it once the block is called.
+    def partial_path_without_prefix
+      old_value = ActionView::Base.prefix_partial_path_with_controller_namespace
+      ActionView::Base.prefix_partial_path_with_controller_namespace = false
+
+      yield
+    ensure
+      ActionView::Base.prefix_partial_path_with_controller_namespace = old_value
+    end
 
     def presenter_class
       super || Frails::Component::Base
