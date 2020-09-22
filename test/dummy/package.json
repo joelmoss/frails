@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "frails": "link:.yalc/frails",
-    "optimize-css-assets-webpack-plugin": "^5.0.4"
-  },
-  "devDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "frails": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }

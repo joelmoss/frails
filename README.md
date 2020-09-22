@@ -22,7 +22,14 @@ PLUS...
 
 - `app/views` - Side loaded assets (JS and CSS).
 - `app/components` - Components
-- `lib` - Library and utility code (including, but not limited to JS and CSS)
+- `app/lib` - Library and utility code (including, but not limited to JS and CSS)
+
+### Node Packages
+
+- `frails` - everything!
+- `@frails/core`
+- `@frails/css`
+- `@frails/postcss`
 
 ---
 

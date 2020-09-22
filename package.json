@@ -1,16 +1,13 @@
 {
   "name": "frails",
-  "version": "0.8.2",
   "description": "A Modern [F]ront End on [Rails] and Webpack",
-  "main": "package/index.js",
   "repository": "git@github.com:joelmoss/frails.git",
   "author": "Joel Moss <joel@developwithstyle.com>",
   "license": "MIT",
-  "files": [
-    "package"
-  ],
+  "private": true,
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint packages --ext js"
   },
   "prettier": {
     "trailingComma": "none",
@@ -23,6 +20,10 @@
     "runMode": "onsave"
   },
   "jest": {
+    "globalSetup": "<rootDir>/test/support/global_setup.js",
+    "projects": [
+      "<rootDir>/packages/*"
+    ],
     "clearMocks": true,
     "testEnvironment": "node",
     "snapshotSerializers": [
@@ -32,35 +33,23 @@
       "jest-extended"
     ],
     "setupFiles": [
-      "jest-plugin-context/setup",
-      "<rootDir>/test/support/cwd.js"
+      "jest-plugin-context/setup"
     ]
   },
-  "peerDependencies": {
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
-  },
-  "dependencies": {
-    "css-loader": "^4.3.0",
-    "fast-glob": "^3.2.4",
-    "lodash": "^4.17.20",
-    "mini-css-extract-plugin": "^0.11.2",
-    "schema-utils": "^2.7.1",
-    "style-loader": "^1.2.1",
-    "webpack": "^4.44.1",
-    "webpack-assets-manifest": "^3.1.1",
-    "webpack-cli": "^3.3.12",
-    "webpack-fix-style-only-entries": "^0.5.1",
-    "webpack-merge": "^5.1.4"
-  },
+  "workspaces": [
+    "packages/*",
+    "test/dummy"
+  ],
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2",
-    "babel-jest": "^26.0.1",
-    "debug": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "jest": "^26.2.2",
     "jest-extended": "^0.11.5",
     "jest-plugin-context": "^2.9.0",
-    "jest-serializer-path": "^0.1.15"
+    "jest-serializer-path": "^0.1.15",
+    "lerna": "^3.22.1",
+    "prettier": "^2.1.2"
   }
 }

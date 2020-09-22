@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createConfig without args 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;

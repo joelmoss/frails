@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`css disabled 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`css within createConfig 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "mini-css-extract-plugin",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`css without args 1`] = `
+Object {
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "mini-css-extract-plugin",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "plugins": Array [
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+}
+`;

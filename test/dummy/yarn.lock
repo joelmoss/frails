@@ -1731,14 +1731,6 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-frails@*:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/frails/-/frails-0.8.2.tgz#d9e1aebdaee5befffeb8ec9132df9df410eb1fd0"
-  integrity sha512-MlwFC+vjvwcIKzHyKG3Z6hxT+gQ8EZPV7WStg39E2eo3OgIic3Wb2OtsA+3Igs5Kx4/WsG2LRukcQDNNZ5exvg==
-  dependencies:
-    glob "^7.1.4"
-    lodash.has "^4.5.2"
-
 fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
@@ -2524,11 +2516,6 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
-
-lodash.has@^4.5.2:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/lodash.has/-/lodash.has-4.5.2.tgz#d19f4dc1095058cccbe2b0cdf4ee0fe4aa37c862"
-  integrity sha1-0Z9NwQlQWMzL4rDN9O4P5Ko3yGI=
 
 lodash.memoize@^4.1.2:
   version "4.1.2"

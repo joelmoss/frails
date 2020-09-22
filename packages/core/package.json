@@ -1,0 +1,21 @@
+{
+  "name": "@frails/core",
+  "version": "0.9.0",
+  "description": "Frails core library and utilities.",
+  "repository": "git@github.com:joelmoss/frails.git",
+  "bugs": "https://github.com/joelmoss/frails/issues",
+  "author": "Joel Moss <joel@developwithstyle.com>",
+  "license": "MIT",
+  "keywords": [
+    "webpack",
+    "rails"
+  ],
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
+  "dependencies": {
+    "webpack-assets-manifest": "^3.1.1",
+    "webpack-fix-style-only-entries": "^0.5.1",
+    "webpack-merge": "^5.1.4"
+  }
+}
