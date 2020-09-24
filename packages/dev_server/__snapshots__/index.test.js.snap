@@ -1,7 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`css disabled 1`] = `
+exports[`devServer createConfig 1`] = `
 Object {
+  "devServer": Object {
+    "contentBase": "<PROJECT_ROOT>/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
   "entry": Object {},
   "mode": "development",
   "output": Object {
@@ -33,28 +42,10 @@ Object {
 }
 `;
 
-exports[`css within createConfig 1`] = `
+exports[`devServer disabled 1`] = `
 Object {
   "entry": Object {},
   "mode": "development",
-  "module": Object {
-    "rules": Array [
-      Object {
-        "test": /\\\\\\.css\\$/i,
-        "use": Array [
-          "mini-css-extract-plugin",
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "modules": Object {
-                "localIdentName": "[local]-[md5:hash:hex:6]",
-              },
-            },
-          },
-        ],
-      },
-    ],
-  },
   "output": Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
@@ -75,14 +66,6 @@ Object {
       },
     },
     Object {},
-    MiniCssExtractPlugin {
-      "options": Object {
-        "chunkFilename": "[name].css",
-        "filename": "[name].css",
-        "ignoreOrder": false,
-        "moduleFilename": [Function],
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {

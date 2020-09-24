@@ -8,10 +8,6 @@ describe('css', () => {
     expect.addSnapshotSerializer(serializer)
   })
 
-  test('without args', () => {
-    expect(css()()).toMatchSnapshot()
-  })
-
   test('within createConfig', () => {
     expect(createConfig(css)).toMatchSnapshot()
     expect(JSON.stringify(createConfig(css()))).toBe(JSON.stringify(createConfig(css)))

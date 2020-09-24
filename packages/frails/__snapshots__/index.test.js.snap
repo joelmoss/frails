@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`createConfig arguments override default blocks 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "<PROJECT_ROOT>/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": Object {},
+  "mode": "development",
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`createConfig arguments override default blocks 2`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "<PROJECT_ROOT>/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "mini-css-extract-plugin",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`createConfig custom blocks are appended 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "<PROJECT_ROOT>/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": Object {},
+  "mockBlock": true,
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "mini-css-extract-plugin",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`createConfig without args 1`] = `
+Object {
+  "devServer": Object {
+    "contentBase": "<PROJECT_ROOT>/public/assets",
+    "port": 8080,
+    "public": "localhost:8080",
+    "publicPath": "/assets/",
+    "watchOptions": Object {
+      "ignored": "**/node_modules/**",
+    },
+  },
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.css\\$/i,
+        "use": Array [
+          "mini-css-extract-plugin",
+          Object {
+            "loader": "css-loader",
+            "options": Object {
+              "modules": Object {
+                "localIdentName": "[local]-[md5:hash:hex:6]",
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+    MiniCssExtractPlugin {
+      "options": Object {
+        "chunkFilename": "[name].css",
+        "filename": "[name].css",
+        "ignoreOrder": false,
+        "moduleFilename": [Function],
+      },
+    },
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;

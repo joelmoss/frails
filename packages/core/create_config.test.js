@@ -12,11 +12,11 @@ describe('createConfig', () => {
   })
 
   test('with function', () => {
-    const aBlock = createConfigBlock(() => config => {
+    const aBlock = createConfigBlock('aBlock', (options, config) => {
       config.aBlock = true
     })
 
-    const anotherBlock = createConfigBlock(({ name }) => config => {
+    const anotherBlock = createConfigBlock('anotherBlock', ({ name }, config) => {
       config.anotherBlock = { name }
     })
 

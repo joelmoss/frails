@@ -1,7 +1,7 @@
 {
-  "name": "frails",
+  "name": "@frails/dev_server",
   "version": "0.9.0",
-  "description": "Frails.",
+  "description": "Frails Webpack Dev Server configuration.",
   "repository": "git@github.com:joelmoss/frails.git",
   "bugs": "https://github.com/joelmoss/frails/issues",
   "author": "Joel Moss <joel@developwithstyle.com>",
@@ -14,8 +14,6 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
-    "@frails/core": "^0.9.0",
-    "@frails/css": "^0.9.0",
-    "@frails/dev_server": "^0.9.0"
+    "@frails/core": "^0.9.0"
   }
 }

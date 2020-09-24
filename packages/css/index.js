@@ -2,7 +2,7 @@ const { merge, mergeWithCustomize, unique } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { config: frailsConfig, createConfigBlock } = require('@frails/core')
 
-module.exports = createConfigBlock((options = {}) => (baseConfig = {}) => {
+module.exports = createConfigBlock('css', (options, baseConfig) => {
   if (options === false) return
 
   baseConfig.plugins = mergeWithCustomize({
@@ -38,6 +38,4 @@ module.exports = createConfigBlock((options = {}) => (baseConfig = {}) => {
       }
     ]
   })
-
-  return baseConfig
 })
