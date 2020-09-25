@@ -40,5 +40,6 @@ module.exports = {
   createConfig,
   createConfigBlock: core.createConfigBlock,
   devServer,
-  css
+  css,
+  sideLoadViews
 }

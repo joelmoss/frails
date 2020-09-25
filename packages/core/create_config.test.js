@@ -1,4 +1,5 @@
 const serializer = require('jest-serializer-path')
+const webpack = require('webpack')
 
 const { createConfig, createConfigBlock } = require('./create_config')
 
@@ -48,5 +49,16 @@ describe('createConfig', () => {
 
     // Expect
     expect(plugins).toEqual(['WebpackFixStyleOnlyEntriesPlugin', 'WebpackAssetsManifest'])
+  })
+
+  test('extra plugin', () => {
+    const config = createConfig({ plugins: [new webpack.DefinePlugin({ URL: 'http://...' })] })
+    const plugins = config.plugins.map(plugin => plugin.constructor.name)
+
+    expect(plugins).toEqual([
+      'WebpackFixStyleOnlyEntriesPlugin',
+      'WebpackAssetsManifest',
+      'DefinePlugin'
+    ])
   })
 })

@@ -21,15 +21,17 @@ PLUS...
 ### Example Rails directory structure
 
 - `app/views` - Side loaded assets (JS and CSS).
-- `app/components` - Components
-- `app/lib` - Library and utility code (including, but not limited to JS and CSS)
+- `app/components` - Components.
+- `app/lib` - Library and utility code (including, but not limited to JS and CSS).
+- `app/assets` - Static assets, such as images and fonts. CSS or JS is not an asset, as they can dynamically affect things. Whereas images and fonts can not.
 
 ### Node Packages
 
 - `frails` - everything!
 - `@frails/core`
 - `@frails/css`
-- `@frails/postcss`
+- `@frails/dev_server`
+- `@frails/side_load_views`
 
 ---
 

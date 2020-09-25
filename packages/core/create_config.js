@@ -24,7 +24,8 @@ const createConfig = (...blocks) => {
     },
     resolve: {
       alias: {
-        lib: path.resolve(frailsConfig.appPath, 'lib')
+        lib: path.resolve(frailsConfig.appPath, 'lib'),
+        assets: path.resolve(frailsConfig.appPath, 'assets')
       }
     },
     plugins: [

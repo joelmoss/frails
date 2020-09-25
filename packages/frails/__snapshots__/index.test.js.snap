@@ -54,6 +54,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
       "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
@@ -140,6 +141,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
       "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
@@ -227,6 +229,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
       "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
@@ -313,6 +316,7 @@ Object {
   ],
   "resolve": Object {
     "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
       "lib": "<PROJECT_ROOT>/app/lib",
     },
   },
