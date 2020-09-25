@@ -11,7 +11,6 @@ const frailsConfig = require('./config')
 // Create and return a Webpack config object based on the given `blocks`, where a block is created
 // from `createConfigBlock`, or a plain object.
 const createConfig = (...blocks) => {
-  console.log(blocks)
   // Make sure NODE_ENV env variable is set.
   process.env.NODE_ENV = frailsConfig.railsEnv === 'test' ? 'development' : frailsConfig.railsEnv
 
@@ -40,7 +39,7 @@ const createConfig = (...blocks) => {
   }
 
   // Loop through each block and apply each one to the config object.
-  blocks.forEach(block => {
+  blocks.forEach((block, i) => {
     if (typeof block === 'function') {
       if (block.blockDepth === 1) {
         block()(config)
@@ -49,6 +48,8 @@ const createConfig = (...blocks) => {
       }
     } else if (isPlainObject(block)) {
       config = merge(config, block)
+    } else {
+      throw `Expected function or plain object; received ${typeof block} from argument ${i}`
     }
   })
 

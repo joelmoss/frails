@@ -11,12 +11,16 @@ describe('createConfig', () => {
     expect(createConfig()).toMatchSnapshot()
   })
 
-  test.only('with an object arg', () => {
+  test('with an object arg', () => {
     // Act
     const config = createConfig({ devtool: 'cheap-module-eval-source-map' })
 
     expect(config).toMatchSnapshot()
     expect(config.devtool).toBe('cheap-module-eval-source-map')
+  })
+
+  test('with an unrecognised argument', () => {
+    expect(() => createConfig(1)).toThrowError('Expected function or plain object')
   })
 
   test('with block args', () => {
