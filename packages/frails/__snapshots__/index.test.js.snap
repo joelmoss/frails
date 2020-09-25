@@ -11,7 +11,25 @@ Object {
       "ignored": "**/node_modules/**",
     },
   },
-  "entry": Object {},
+  "entry": Object {
+    "views/layouts/application": Array [
+      "<PROJECT_ROOT>/app/views/layouts/application.css",
+      "<PROJECT_ROOT>/app/views/layouts/application.js",
+    ],
+    "views/layouts/no_side": Array [
+      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
+    ],
+    "views/pages/_header": Array [
+      "<PROJECT_ROOT>/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.js",
+    ],
+    "views/pages/_post": Array [
+      "<PROJECT_ROOT>/app/views/pages/_post.css",
+    ],
+    "views/pages/home": Array [
+      "<PROJECT_ROOT>/app/views/pages/home.css",
+    ],
+  },
   "mode": "development",
   "output": Object {
     "path": "<PROJECT_ROOT>/public/assets",
@@ -53,7 +71,25 @@ Object {
       "ignored": "**/node_modules/**",
     },
   },
-  "entry": Object {},
+  "entry": Object {
+    "views/layouts/application": Array [
+      "<PROJECT_ROOT>/app/views/layouts/application.css",
+      "<PROJECT_ROOT>/app/views/layouts/application.js",
+    ],
+    "views/layouts/no_side": Array [
+      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
+    ],
+    "views/pages/_header": Array [
+      "<PROJECT_ROOT>/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.js",
+    ],
+    "views/pages/_post": Array [
+      "<PROJECT_ROOT>/app/views/pages/_post.css",
+    ],
+    "views/pages/home": Array [
+      "<PROJECT_ROOT>/app/views/pages/home.css",
+    ],
+  },
   "mode": "development",
   "module": Object {
     "rules": Array [
@@ -121,7 +157,25 @@ Object {
       "ignored": "**/node_modules/**",
     },
   },
-  "entry": Object {},
+  "entry": Object {
+    "views/layouts/application": Array [
+      "<PROJECT_ROOT>/app/views/layouts/application.css",
+      "<PROJECT_ROOT>/app/views/layouts/application.js",
+    ],
+    "views/layouts/no_side": Array [
+      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
+    ],
+    "views/pages/_header": Array [
+      "<PROJECT_ROOT>/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.js",
+    ],
+    "views/pages/_post": Array [
+      "<PROJECT_ROOT>/app/views/pages/_post.css",
+    ],
+    "views/pages/home": Array [
+      "<PROJECT_ROOT>/app/views/pages/home.css",
+    ],
+  },
   "mockBlock": true,
   "mode": "development",
   "module": Object {
@@ -190,7 +244,25 @@ Object {
       "ignored": "**/node_modules/**",
     },
   },
-  "entry": Object {},
+  "entry": Object {
+    "views/layouts/application": Array [
+      "<PROJECT_ROOT>/app/views/layouts/application.css",
+      "<PROJECT_ROOT>/app/views/layouts/application.js",
+    ],
+    "views/layouts/no_side": Array [
+      "<PROJECT_ROOT>/app/views/layouts/no_side.css",
+    ],
+    "views/pages/_header": Array [
+      "<PROJECT_ROOT>/app/views/pages/_header.css",
+      "<PROJECT_ROOT>/app/views/pages/_header.js",
+    ],
+    "views/pages/_post": Array [
+      "<PROJECT_ROOT>/app/views/pages/_post.css",
+    ],
+    "views/pages/home": Array [
+      "<PROJECT_ROOT>/app/views/pages/home.css",
+    ],
+  },
   "mode": "development",
   "module": Object {
     "rules": Array [

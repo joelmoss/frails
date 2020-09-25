@@ -1,7 +1,7 @@
 {
-  "name": "frails",
+  "name": "@frails/side_load_views",
   "version": "0.9.0",
-  "description": "Frails.",
+  "description": "Frails Side Loaded Views Webpack configuration.",
   "repository": "git@github.com:joelmoss/frails.git",
   "bugs": "https://github.com/joelmoss/frails/issues",
   "author": "Joel Moss <joel@developwithstyle.com>",
@@ -15,8 +15,6 @@
   },
   "dependencies": {
     "@frails/core": "^0.9.0",
-    "@frails/css": "^0.9.0",
-    "@frails/dev_server": "^0.9.0",
-    "@frails/side_load_views": "^0.9.0"
+    "lodash": "^4.17.20"
   }
 }
