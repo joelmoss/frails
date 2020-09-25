@@ -42,7 +42,7 @@ Object {
       Object {
         "test": /\\\\\\.css\\$/i,
         "use": Array [
-          "mini-css-extract-plugin",
+          "<HOME_DIR>/dev/frails/node_modules/mini-css-extract-plugin/dist/loader.js",
           Object {
             "loader": "css-loader",
             "options": Object {

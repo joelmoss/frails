@@ -25,7 +25,7 @@ module.exports = createConfigBlock('css', (options, baseConfig) => {
       {
         test: /\.css$/i,
         use: [
-          'mini-css-extract-plugin',
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
