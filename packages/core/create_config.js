@@ -1,18 +1,22 @@
 const path = require('path')
 
+const { merge } = require('webpack-merge')
+const isPlainObject = require('lodash/isPlainObject')
 const debug = require('debug')
 const WebpackAssetsManifest = require('webpack-assets-manifest')
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries')
 
 const frailsConfig = require('./config')
 
-// Create and return a Webpack config object based on the given `blocks`.
+// Create and return a Webpack config object based on the given `blocks`, where a block is created
+// from `createConfigBlock`, or a plain object.
 const createConfig = (...blocks) => {
+  console.log(blocks)
   // Make sure NODE_ENV env variable is set.
   process.env.NODE_ENV = frailsConfig.railsEnv === 'test' ? 'development' : frailsConfig.railsEnv
 
   // Default config.
-  const config = {
+  let config = {
     mode: process.env.NODE_ENV,
     entry: {},
     output: {
@@ -43,6 +47,8 @@ const createConfig = (...blocks) => {
       } else {
         block(config)
       }
+    } else if (isPlainObject(block)) {
+      config = merge(config, block)
     }
   })
 
