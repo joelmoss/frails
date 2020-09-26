@@ -16,3 +16,10 @@ test/dummy/log
 test/dummy/spec
 test/dummy/public/*
 !test/dummy/public/favicon.ico
+
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

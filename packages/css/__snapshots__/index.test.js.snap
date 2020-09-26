@@ -43,9 +43,9 @@ Object {
       Object {
         "test": /\\\\\\.css\\$/i,
         "use": Array [
-          "<HOME_DIR>/dev/frails/node_modules/mini-css-extract-plugin/dist/loader.js",
+          "<HOME_DIR>/dev/frails/.yarn/$$virtual/mini-css-extract-plugin-virtual-823b20f64d/0/cache/mini-css-extract-plugin-npm-0.11.2-7dc8d33bf0-2dfedd9cb3.zip/node_modules/mini-css-extract-plugin/dist/loader.js",
           Object {
-            "loader": "css-loader",
+            "loader": "<HOME_DIR>/dev/frails/.yarn/$$virtual/css-loader-virtual-c4a0309b9e/0/cache/css-loader-npm-4.3.0-33464197c9-1f441ac567.zip/node_modules/css-loader/dist/cjs.js",
             "options": Object {
               "modules": Object {
                 "localIdentName": "[local]-[md5:hash:hex:6]",

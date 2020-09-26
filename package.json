@@ -1,6 +1,4 @@
 {
-  "name": "frails",
-  "description": "A Modern [F]ront End on [Rails] and Webpack",
   "repository": "git@github.com:joelmoss/frails.git",
   "author": "Joel Moss <joel@developwithstyle.com>",
   "license": "MIT",
@@ -41,15 +39,14 @@
     "test/dummy"
   ],
   "devDependencies": {
-    "eslint": "^7.9.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.2.2",
+    "jest": "^26.4.2",
     "jest-extended": "^0.11.5",
     "jest-plugin-context": "^2.9.0",
     "jest-serializer-path": "^0.1.15",
-    "lerna": "^3.22.1",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "resolve": "^1.17.0"
   }
 }

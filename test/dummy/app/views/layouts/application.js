@@ -1,3 +1,3 @@
-import 'lib/utils/string.js'
+import 'lib/utils/string'
 
 console.log('views/layouts/application.js')

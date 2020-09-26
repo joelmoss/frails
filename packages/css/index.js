@@ -27,7 +27,7 @@ module.exports = createConfigBlock('css', (options, baseConfig) => {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: require.resolve('css-loader'),
             options: {
               modules: {
                 localIdentName: frailsConfig.cssLocalIdentName
