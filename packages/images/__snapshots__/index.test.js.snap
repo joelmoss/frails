@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`images createConfig 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {},
+        },
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`images disabled 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`images with options 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {
+            "name": "[path][name]-[hash].[ext]",
+          },
+        },
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;

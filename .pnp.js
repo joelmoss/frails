@@ -43,6 +43,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/frails"
       },
       {
+        "name": "@frails/images",
+        "reference": "workspace:packages/images"
+      },
+      {
         "name": "@frails/side_load_views",
         "reference": "workspace:packages/side_load_views"
       },
@@ -58,6 +62,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@frails/core", ["virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core", "virtual:a61f8f95a75c665d4e4b9d3a208132a11de0a06295c96cb13bb6e332819f81b2bfc08896e6dee3f372a3f6a6d3b2962915eeccb372d55ec12dbd1d4550469a4b#workspace:packages/core", "workspace:packages/core"]],
       ["@frails/css", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/css", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/css", "workspace:packages/css"]],
       ["@frails/dev_server", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/dev_server", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/dev_server", "workspace:packages/dev_server"]],
+      ["@frails/images", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images", "workspace:packages/images"]],
       ["@frails/side_load_views", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/side_load_views", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/side_load_views", "workspace:packages/side_load_views"]],
       ["frails", ["virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#workspace:packages/frails", "workspace:packages/frails"]],
       ["root-workspace-0b6124", ["workspace:."]],
@@ -752,6 +757,54 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/dev_server", "workspace:packages/dev_server"],
             ["@frails/core", "virtual:a61f8f95a75c665d4e4b9d3a208132a11de0a06295c96cb13bb6e332819f81b2bfc08896e6dee3f372a3f6a6d3b2962915eeccb372d55ec12dbd1d4550469a4b#workspace:packages/core"],
             ["jest-serializer-path", "npm:0.1.15"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@frails/images", [
+        ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images", {
+          "packageLocation": "./.yarn/$$virtual/@frails-images-virtual-488758b709/1/packages/images/",
+          "packageDependencies": [
+            ["@frails/images", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images"],
+            ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
+            ["@types/webpack", null],
+            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images", {
+          "packageLocation": "./.yarn/$$virtual/@frails-images-virtual-d0feded76f/1/packages/images/",
+          "packageDependencies": [
+            ["@frails/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images"],
+            ["@frails/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core"],
+            ["@types/webpack", null],
+            ["file-loader", "virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["workspace:packages/images", {
+          "packageLocation": "./packages/images/",
+          "packageDependencies": [
+            ["@frails/images", "workspace:packages/images"],
+            ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
+            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
           ],
           "linkType": "SOFT",
         }]
@@ -4249,6 +4302,38 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["file-loader", [
+        ["virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0", {
+          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-718f837ff8/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
+          "packageDependencies": [
+            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["@types/webpack", null],
+            ["loader-utils", "npm:2.0.0"],
+            ["schema-utils", "npm:2.7.1"],
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0", {
+          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-039bf472d1/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
+          "packageDependencies": [
+            ["file-loader", "virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0"],
+            ["@types/webpack", null],
+            ["loader-utils", "npm:2.0.0"],
+            ["schema-utils", "npm:2.7.1"],
+            ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["file-uri-to-path", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/file-uri-to-path-npm-1.0.0-1043ac6206-5ddb9682f0.zip/node_modules/file-uri-to-path/",
@@ -4404,6 +4489,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core"],
             ["@frails/css", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/css"],
             ["@frails/dev_server", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/dev_server"],
+            ["@frails/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images"],
             ["@frails/side_load_views", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/side_load_views"],
             ["@types/webpack", null],
             ["jest-serializer-path", "npm:0.1.15"],
@@ -4423,6 +4509,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
             ["@frails/css", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/css"],
             ["@frails/dev_server", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/dev_server"],
+            ["@frails/images", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images"],
             ["@frails/side_load_views", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/side_load_views"],
             ["jest-serializer-path", "npm:0.1.15"],
             ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"]

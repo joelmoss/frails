@@ -440,6 +440,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@frails/images@workspace:*, @frails/images@workspace:packages/images":
+  version: 0.0.0-use.local
+  resolution: "@frails/images@workspace:packages/images"
+  dependencies:
+    "@frails/core": "workspace:*"
+    file-loader: ^6.1.0
+    jest-serializer-path: ^0.1.15
+    webpack: ^4.44.2
+    webpack-merge: ^5.1.4
+  peerDependencies:
+    webpack: ^4.0.0
+  languageName: unknown
+  linkType: soft
+
 "@frails/side_load_views@workspace:*, @frails/side_load_views@workspace:packages/side_load_views":
   version: 0.0.0-use.local
   resolution: "@frails/side_load_views@workspace:packages/side_load_views"
@@ -3479,6 +3493,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-loader@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "file-loader@npm:6.1.0"
+  dependencies:
+    loader-utils: ^2.0.0
+    schema-utils: ^2.7.1
+  peerDependencies:
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: ad930c9e7fa8c85cc048afa44c370c86f6a9ba89149b2b24e362f0b279595a05d039211263bf65117e4850f337f9bff251288ddff426dda997468a00e1268ffc
+  languageName: node
+  linkType: hard
+
 "file-uri-to-path@npm:1.0.0":
   version: 1.0.0
   resolution: "file-uri-to-path@npm:1.0.0"
@@ -3619,6 +3645,7 @@ __metadata:
     "@frails/core": "workspace:*"
     "@frails/css": "workspace:*"
     "@frails/dev_server": "workspace:*"
+    "@frails/images": "workspace:*"
     "@frails/side_load_views": "workspace:*"
     jest-serializer-path: ^0.1.15
     webpack: ^4.44.2

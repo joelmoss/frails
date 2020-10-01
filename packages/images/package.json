@@ -1,7 +1,7 @@
 {
-  "name": "frails",
+  "name": "@frails/images",
   "version": "0.9.0",
-  "description": "Frails.",
+  "description": "Frails Images configuration.",
   "repository": "git@github.com:joelmoss/frails.git",
   "bugs": "https://github.com/joelmoss/frails/issues",
   "author": "Joel Moss <joel@developwithstyle.com>",
@@ -14,12 +14,9 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
-    "@frails/babel": "workspace:*",
     "@frails/core": "workspace:*",
-    "@frails/css": "workspace:*",
-    "@frails/dev_server": "workspace:*",
-    "@frails/images": "workspace:*",
-    "@frails/side_load_views": "workspace:*"
+    "file-loader": "^6.1.0",
+    "webpack-merge": "^5.1.4"
   },
   "devDependencies": {
     "jest-serializer-path": "^0.1.15",
