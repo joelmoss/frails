@@ -1,6 +1,7 @@
 const serializer = require('jest-serializer-path')
 
 const { createConfig, createConfigBlock, css } = require('.')
+jest.mock('@frails/babel/require_resolve')
 
 describe('createConfig', () => {
   beforeAll(() => {

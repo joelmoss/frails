@@ -1,9 +1,10 @@
 const core = require('@frails/core')
 const devServer = require('@frails/dev_server')
 const css = require('@frails/css')
+const babel = require('@frails/babel')
 const sideLoadViews = require('@frails/side_load_views')
 
-const defaultBlocks = [sideLoadViews, css, devServer]
+const defaultBlocks = [sideLoadViews, css, devServer, babel]
 
 // Create and return a Webpack config object with default Frails config blocks (see `defaultBlocks`
 // above).
@@ -41,5 +42,6 @@ module.exports = {
   createConfigBlock: core.createConfigBlock,
   devServer,
   css,
-  sideLoadViews
+  sideLoadViews,
+  babel
 }

@@ -1,7 +1,7 @@
 {
-  "name": "frails",
+  "name": "@frails/babel",
   "version": "0.9.0",
-  "description": "Frails.",
+  "description": "Frails Babel configuration.",
   "repository": "git@github.com:joelmoss/frails.git",
   "bugs": "https://github.com/joelmoss/frails/issues",
   "author": "Joel Moss <joel@developwithstyle.com>",
@@ -14,11 +14,10 @@
     "webpack": "^4.0.0"
   },
   "dependencies": {
-    "@frails/babel": "workspace:*",
+    "@babel/core": "^7.11.6",
     "@frails/core": "workspace:*",
-    "@frails/css": "workspace:*",
-    "@frails/dev_server": "workspace:*",
-    "@frails/side_load_views": "workspace:*"
+    "babel-loader": "^8.1.0",
+    "webpack-merge": "^5.1.4"
   },
   "devDependencies": {
     "jest-serializer-path": "^0.1.15",

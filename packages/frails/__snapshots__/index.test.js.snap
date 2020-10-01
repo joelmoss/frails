@@ -31,6 +31,19 @@ Object {
     ],
   },
   "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
+        },
+      },
+    ],
+  },
   "output": Object {
     "path": "<PROJECT_ROOT>/public/assets",
     "publicPath": "/assets/",
@@ -107,6 +120,15 @@ Object {
             },
           },
         ],
+      },
+      Object {
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
+        },
       },
     ],
   },
@@ -196,6 +218,15 @@ Object {
           },
         ],
       },
+      Object {
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
+        },
+      },
     ],
   },
   "output": Object {
@@ -282,6 +313,15 @@ Object {
             },
           },
         ],
+      },
+      Object {
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
+        },
       },
     ],
   },

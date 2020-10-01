@@ -30,7 +30,7 @@ PLUS...
 - `frails` - everything!
 - `@frails/core`
 - `@frails/css`
-- `@frails/assets`
+- `@frails/babel`
 - `@frails/dev_server`
 - `@frails/side_load_views`
 

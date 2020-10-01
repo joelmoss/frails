@@ -1,6 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`css disabled 1`] = `
+exports[`babel createConfig 1`] = `
+Object {
+  "entry": Object {},
+  "mode": "development",
+  "module": Object {
+    "rules": Array [
+      Object {
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheDirectory": true,
+          },
+        },
+      },
+    ],
+  },
+  "output": Object {
+    "path": "<PROJECT_ROOT>/public/assets",
+    "publicPath": "/assets/",
+  },
+  "plugins": Array [
+    WebpackFixStyleOnlyEntriesPlugin {
+      "apply": [Function],
+      "options": Object {
+        "extensions": Array [
+          "less",
+          "scss",
+          "css",
+          "sass",
+          "styl",
+        ],
+        "ignore": undefined,
+        "silent": false,
+      },
+    },
+    Object {},
+  ],
+  "resolve": Object {
+    "alias": Object {
+      "assets": "<PROJECT_ROOT>/app/assets",
+      "lib": "<PROJECT_ROOT>/app/lib",
+    },
+  },
+}
+`;
+
+exports[`babel disabled 1`] = `
 Object {
   "entry": Object {},
   "mode": "development",
@@ -34,25 +81,21 @@ Object {
 }
 `;
 
-exports[`css within createConfig 1`] = `
+exports[`babel with options 1`] = `
 Object {
   "entry": Object {},
   "mode": "development",
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\\\\\.css\\$/i,
-        "use": Array [
-          "<HOME_DIR>/dev/frails/.yarn/$$virtual/mini-css-extract-plugin-virtual-823b20f64d/0/cache/mini-css-extract-plugin-npm-0.11.2-7dc8d33bf0-2dfedd9cb3.zip/node_modules/mini-css-extract-plugin/dist/loader.js",
-          Object {
-            "loader": "css-loader",
-            "options": Object {
-              "modules": Object {
-                "localIdentName": "[local]-[md5:hash:hex:6]",
-              },
-            },
+        "test": /\\\\\\.js\\$/i,
+        "use": Object {
+          "loader": "babel-loader",
+          "options": Object {
+            "cacheCompression": false,
+            "cacheDirectory": true,
           },
-        ],
+        },
       },
     ],
   },
@@ -76,14 +119,6 @@ Object {
       },
     },
     Object {},
-    MiniCssExtractPlugin {
-      "options": Object {
-        "chunkFilename": "[name].css",
-        "filename": "[name].css",
-        "ignoreOrder": false,
-        "moduleFilename": [Function],
-      },
-    },
   ],
   "resolve": Object {
     "alias": Object {

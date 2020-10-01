@@ -2,6 +2,7 @@ const serializer = require('jest-serializer-path')
 const { createConfig } = require('@frails/core')
 
 const css = require('.')
+jest.mock('./require_resolve')
 
 describe('css', () => {
   beforeAll(() => {

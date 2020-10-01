@@ -2,6 +2,8 @@ const { merge, mergeWithCustomize, unique } = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { config: frailsConfig, createConfigBlock } = require('@frails/core')
 
+const requireResolve = require('./require_resolve')
+
 module.exports = createConfigBlock('css', (options, baseConfig) => {
   if (options === false) return
 
@@ -27,7 +29,7 @@ module.exports = createConfigBlock('css', (options, baseConfig) => {
         use: [
           MiniCssExtractPlugin.loader,
           {
-            loader: require.resolve('css-loader'),
+            loader: requireResolve('css-loader'),
             options: {
               modules: {
                 localIdentName: frailsConfig.cssLocalIdentName
