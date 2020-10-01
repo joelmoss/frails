@@ -2,6 +2,7 @@
 
 exports[`createConfig arguments override default blocks 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "devServer": Object {
     "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
@@ -82,16 +83,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`createConfig arguments override default blocks 2`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "devServer": Object {
     "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
@@ -194,16 +195,16 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`createConfig custom blocks are appended 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "devServer": Object {
     "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
@@ -307,16 +308,16 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`createConfig without args 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "devServer": Object {
     "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
@@ -419,10 +420,9 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;

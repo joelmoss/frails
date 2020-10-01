@@ -2,6 +2,7 @@
 
 exports[`css disabled 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "output": Object {
@@ -26,16 +27,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`css within createConfig 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "module": Object {
@@ -86,10 +87,9 @@ Object {
     },
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;

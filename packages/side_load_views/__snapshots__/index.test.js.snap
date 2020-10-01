@@ -2,6 +2,7 @@
 
 exports[`sideLoadViews createConfig 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {
     "views/layouts/application": Array [
       "<PROJECT_ROOT>/app/views/layouts/application.css",
@@ -44,16 +45,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`sideLoadViews disabled 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "output": Object {
@@ -78,10 +79,9 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;

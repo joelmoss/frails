@@ -2,6 +2,7 @@
 
 exports[`devServer createConfig 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "devServer": Object {
     "contentBase": "<PROJECT_ROOT>/public/assets",
     "port": 8080,
@@ -35,16 +36,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`devServer disabled 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "output": Object {
@@ -69,10 +70,9 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;

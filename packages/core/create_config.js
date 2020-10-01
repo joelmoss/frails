@@ -22,11 +22,9 @@ const createConfig = (...blocks) => {
       path: frailsConfig.absolutePublicPath,
       publicPath: `/${frailsConfig.publicOutputPath}/`
     },
+    context: frailsConfig.appPath,
     resolve: {
-      alias: {
-        lib: path.resolve(frailsConfig.appPath, 'lib'),
-        assets: path.resolve(frailsConfig.appPath, 'assets')
-      }
+      modules: [frailsConfig.appPath]
     },
     plugins: [
       new FixStyleOnlyEntriesPlugin(),

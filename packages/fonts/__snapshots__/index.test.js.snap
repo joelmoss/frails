@@ -2,6 +2,7 @@
 
 exports[`fonts createConfig 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "module": Object {
@@ -39,16 +40,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`fonts disabled 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "output": Object {
@@ -73,16 +74,16 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
 
 exports[`fonts with options 1`] = `
 Object {
+  "context": "<PROJECT_ROOT>/app",
   "entry": Object {},
   "mode": "development",
   "module": Object {
@@ -121,10 +122,9 @@ Object {
     Object {},
   ],
   "resolve": Object {
-    "alias": Object {
-      "assets": "<PROJECT_ROOT>/app/assets",
-      "lib": "<PROJECT_ROOT>/app/lib",
-    },
+    "modules": Array [
+      "<PROJECT_ROOT>/app",
+    ],
   },
 }
 `;
