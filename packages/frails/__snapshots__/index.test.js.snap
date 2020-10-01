@@ -34,10 +34,19 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.\\(jpg\\|jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
         "use": Object {
           "loader": "file-loader",
           "options": Object {},
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(woff\\|woff2\\)\\(\\\\\\?v=\\\\d\\+\\\\\\.\\\\d\\+\\\\\\.\\\\d\\+\\)\\?\\$/,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {
+            "mimetype": "application/font-woff",
+          },
         },
       },
       Object {
@@ -115,10 +124,19 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.\\(jpg\\|jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
         "use": Object {
           "loader": "file-loader",
           "options": Object {},
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(woff\\|woff2\\)\\(\\\\\\?v=\\\\d\\+\\\\\\.\\\\d\\+\\\\\\.\\\\d\\+\\)\\?\\$/,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {
+            "mimetype": "application/font-woff",
+          },
         },
       },
       Object {
@@ -219,10 +237,19 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.\\(jpg\\|jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
         "use": Object {
           "loader": "file-loader",
           "options": Object {},
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(woff\\|woff2\\)\\(\\\\\\?v=\\\\d\\+\\\\\\.\\\\d\\+\\\\\\.\\\\d\\+\\)\\?\\$/,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {
+            "mimetype": "application/font-woff",
+          },
         },
       },
       Object {
@@ -322,10 +349,19 @@ Object {
   "module": Object {
     "rules": Array [
       Object {
-        "test": /\\\\\\.\\(jpg\\|jpeg\\|png\\|gif\\|svg\\)\\$/i,
+        "test": /\\\\\\.\\(jpg\\|jpe\\?g\\|png\\|gif\\|svg\\)\\$/i,
         "use": Object {
           "loader": "file-loader",
           "options": Object {},
+        },
+      },
+      Object {
+        "test": /\\\\\\.\\(woff\\|woff2\\)\\(\\\\\\?v=\\\\d\\+\\\\\\.\\\\d\\+\\\\\\.\\\\d\\+\\)\\?\\$/,
+        "use": Object {
+          "loader": "file-loader",
+          "options": Object {
+            "mimetype": "application/font-woff",
+          },
         },
       },
       Object {

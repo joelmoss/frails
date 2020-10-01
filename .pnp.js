@@ -39,6 +39,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/dev_server"
       },
       {
+        "name": "@frails/fonts",
+        "reference": "workspace:packages/fonts"
+      },
+      {
         "name": "frails",
         "reference": "workspace:packages/frails"
       },
@@ -62,6 +66,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@frails/core", ["virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core", "virtual:a61f8f95a75c665d4e4b9d3a208132a11de0a06295c96cb13bb6e332819f81b2bfc08896e6dee3f372a3f6a6d3b2962915eeccb372d55ec12dbd1d4550469a4b#workspace:packages/core", "workspace:packages/core"]],
       ["@frails/css", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/css", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/css", "workspace:packages/css"]],
       ["@frails/dev_server", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/dev_server", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/dev_server", "workspace:packages/dev_server"]],
+      ["@frails/fonts", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/fonts", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/fonts", "workspace:packages/fonts"]],
       ["@frails/images", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images", "workspace:packages/images"]],
       ["@frails/side_load_views", ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/side_load_views", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/side_load_views", "workspace:packages/side_load_views"]],
       ["frails", ["virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#workspace:packages/frails", "workspace:packages/frails"]],
@@ -761,6 +766,54 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "SOFT",
         }]
       ]],
+      ["@frails/fonts", [
+        ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/fonts", {
+          "packageLocation": "./.yarn/$$virtual/@frails-fonts-virtual-4946475d3c/1/packages/fonts/",
+          "packageDependencies": [
+            ["@frails/fonts", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/fonts"],
+            ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
+            ["@types/webpack", null],
+            ["file-loader", "virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/fonts", {
+          "packageLocation": "./.yarn/$$virtual/@frails-fonts-virtual-9516262a1c/1/packages/fonts/",
+          "packageDependencies": [
+            ["@frails/fonts", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/fonts"],
+            ["@frails/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core"],
+            ["@types/webpack", null],
+            ["file-loader", "virtual:9516262a1c518708d1932c2cd53ac071964ed0da79c8233b0cfe88545f8de6385349f4312aa9ff48d826691a85d30a3f5afe64f00ab212c2339347fb47b3a84f#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
+          ],
+          "packagePeers": [
+            "@types/webpack",
+            "webpack"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["workspace:packages/fonts", {
+          "packageLocation": "./packages/fonts/",
+          "packageDependencies": [
+            ["@frails/fonts", "workspace:packages/fonts"],
+            ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
+            ["file-loader", "virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0"],
+            ["jest-serializer-path", "npm:0.1.15"],
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
+            ["webpack-merge", "npm:5.1.4"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
       ["@frails/images", [
         ["virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images", {
           "packageLocation": "./.yarn/$$virtual/@frails-images-virtual-488758b709/1/packages/images/",
@@ -768,7 +821,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/images", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images"],
             ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
             ["@types/webpack", null],
-            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["file-loader", "virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0"],
             ["jest-serializer-path", "npm:0.1.15"],
             ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
             ["webpack-merge", "npm:5.1.4"]
@@ -785,7 +838,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images"],
             ["@frails/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core"],
             ["@types/webpack", null],
-            ["file-loader", "virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0"],
+            ["file-loader", "virtual:9516262a1c518708d1932c2cd53ac071964ed0da79c8233b0cfe88545f8de6385349f4312aa9ff48d826691a85d30a3f5afe64f00ab212c2339347fb47b3a84f#npm:6.1.0"],
             ["jest-serializer-path", "npm:0.1.15"],
             ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"],
             ["webpack-merge", "npm:5.1.4"]
@@ -801,7 +854,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@frails/images", "workspace:packages/images"],
             ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
-            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["file-loader", "virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0"],
             ["jest-serializer-path", "npm:0.1.15"],
             ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"],
             ["webpack-merge", "npm:5.1.4"]
@@ -4303,14 +4356,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["file-loader", [
-        ["virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0", {
-          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-718f837ff8/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
+        ["virtual:9516262a1c518708d1932c2cd53ac071964ed0da79c8233b0cfe88545f8de6385349f4312aa9ff48d826691a85d30a3f5afe64f00ab212c2339347fb47b3a84f#npm:6.1.0", {
+          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-4416658ff8/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
           "packageDependencies": [
-            ["file-loader", "virtual:488758b70902b5d0a394e9d9f37f03c7f0c862b95f36d33b25ff85ad3a552ae1c1b2ad48d520b44aa53697282ad9e576e7c89369217e069026fedeafc733884f#npm:6.1.0"],
+            ["file-loader", "virtual:9516262a1c518708d1932c2cd53ac071964ed0da79c8233b0cfe88545f8de6385349f4312aa9ff48d826691a85d30a3f5afe64f00ab212c2339347fb47b3a84f#npm:6.1.0"],
             ["@types/webpack", null],
             ["loader-utils", "npm:2.0.0"],
             ["schema-utils", "npm:2.7.1"],
-            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"]
+            ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"]
           ],
           "packagePeers": [
             "@types/webpack",
@@ -4318,14 +4371,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0", {
-          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-039bf472d1/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
+        ["virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0", {
+          "packageLocation": "./.yarn/$$virtual/file-loader-virtual-0d49bfa979/0/cache/file-loader-npm-6.1.0-f18e7b504b-ad930c9e7f.zip/node_modules/file-loader/",
           "packageDependencies": [
-            ["file-loader", "virtual:d0feded76f1d049a4f9c67509527a584ae905132074e90d4c7a7bcad65c076cc80d9c0d4e438e83ed02bcacefd3f51060ca68f1435ec99accc4d2c70e7a5dc7d#npm:6.1.0"],
+            ["file-loader", "virtual:fe8d8b11b9bb31028920c65cc22f4d96d3e7defb37afe49a7ff6ed88bfa7b0416a11321e63f3a93841f5345b801fbd62741888a6be64305099a9a8e006d7b336#npm:6.1.0"],
             ["@types/webpack", null],
             ["loader-utils", "npm:2.0.0"],
             ["schema-utils", "npm:2.7.1"],
-            ["webpack", "virtual:cd06603af5a6d38f7df4272dc9c5ade51bd31a0cd60e4c03eb20cdffef5d89641d1e9142f7a60d0bcccff28c1691a91379bfec13749ae0ef923ca57b0319f746#npm:4.44.2"]
+            ["webpack", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#npm:4.44.2"]
           ],
           "packagePeers": [
             "@types/webpack",
@@ -4489,6 +4542,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/core", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/core"],
             ["@frails/css", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/css"],
             ["@frails/dev_server", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/dev_server"],
+            ["@frails/fonts", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/fonts"],
             ["@frails/images", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/images"],
             ["@frails/side_load_views", "virtual:9827a5a9e01b4cd91de2c0582dff30af0e8e0971a962016938eb62b86f040821f94c36fd5efd0e2252b37862bd94de1c5af6869e679240dc462f60e502f465c9#workspace:packages/side_load_views"],
             ["@types/webpack", null],
@@ -4509,6 +4563,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@frails/core", "virtual:848b783b5077f953ecc1802dae68cb5211165c977be3708f15f778a83c5e9fa1cd3ee5c8ffe87fb4280b5f3cc69bedeb6fa3c06b3c7ea703b36baccb161adb6f#workspace:packages/core"],
             ["@frails/css", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/css"],
             ["@frails/dev_server", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/dev_server"],
+            ["@frails/fonts", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/fonts"],
             ["@frails/images", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/images"],
             ["@frails/side_load_views", "virtual:0fa5226b62f77a1506effaba6c2cb19e73e1297cc6de5105b091d2d13af0b4307cc6bb4a4b73d6d076e84aa2121356890e35d8a32d81c403f499f57ad8752cab#workspace:packages/side_load_views"],
             ["jest-serializer-path", "npm:0.1.15"],

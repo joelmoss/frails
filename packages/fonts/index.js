@@ -2,16 +2,17 @@ const { createConfigBlock } = require('@frails/core')
 const { merge } = require('webpack-merge')
 const requireResolve = require('./require_resolve')
 
-module.exports = createConfigBlock('images', (options, baseConfig) => {
+module.exports = createConfigBlock('fonts', (options, baseConfig) => {
   if (options === false) return
 
   baseConfig.module = merge(baseConfig.module || {}, {
     rules: [
       {
-        test: /\.(jpg|jpe?g|png|gif|svg)$/i,
+        // Match woff2 in addition to patterns like .woff?v=1.1.1.
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
           loader: requireResolve('file-loader'),
-          options
+          options: merge({ mimetype: 'application/font-woff' }, options)
         }
       }
     ]

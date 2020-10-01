@@ -31,6 +31,7 @@ PLUS...
 - `@frails/core`
 - `@frails/css`
 - `@frails/images`
+- `@frails/fonts`
 - `@frails/babel`
 - `@frails/dev_server`
 - `@frails/side_load_views`

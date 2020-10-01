@@ -440,6 +440,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@frails/fonts@workspace:*, @frails/fonts@workspace:packages/fonts":
+  version: 0.0.0-use.local
+  resolution: "@frails/fonts@workspace:packages/fonts"
+  dependencies:
+    "@frails/core": "workspace:*"
+    file-loader: ^6.1.0
+    jest-serializer-path: ^0.1.15
+    webpack: ^4.44.2
+    webpack-merge: ^5.1.4
+  peerDependencies:
+    webpack: ^4.0.0
+  languageName: unknown
+  linkType: soft
+
 "@frails/images@workspace:*, @frails/images@workspace:packages/images":
   version: 0.0.0-use.local
   resolution: "@frails/images@workspace:packages/images"
@@ -3645,6 +3659,7 @@ __metadata:
     "@frails/core": "workspace:*"
     "@frails/css": "workspace:*"
     "@frails/dev_server": "workspace:*"
+    "@frails/fonts": "workspace:*"
     "@frails/images": "workspace:*"
     "@frails/side_load_views": "workspace:*"
     jest-serializer-path: ^0.1.15

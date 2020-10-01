@@ -4,6 +4,7 @@ const { createConfig, createConfigBlock, css } = require('.')
 jest.mock('@frails/babel/require_resolve')
 jest.mock('@frails/css/require_resolve')
 jest.mock('@frails/images/require_resolve')
+jest.mock('@frails/fonts/require_resolve')
 
 describe('createConfig', () => {
   beforeAll(() => {

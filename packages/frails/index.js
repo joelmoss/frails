@@ -3,9 +3,10 @@ const devServer = require('@frails/dev_server')
 const css = require('@frails/css')
 const babel = require('@frails/babel')
 const images = require('@frails/images')
+const fonts = require('@frails/fonts')
 const sideLoadViews = require('@frails/side_load_views')
 
-const defaultBlocks = [sideLoadViews, images, css, devServer, babel]
+const defaultBlocks = [sideLoadViews, images, fonts, css, devServer, babel]
 
 // Create and return a Webpack config object with default Frails config blocks (see `defaultBlocks`
 // above).
@@ -44,6 +45,7 @@ module.exports = {
   devServer,
   css,
   images,
+  fonts,
   sideLoadViews,
   babel
 }
