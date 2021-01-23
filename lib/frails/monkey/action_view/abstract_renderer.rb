@@ -7,7 +7,8 @@ module Frails
         def side_load_assets(view, tpl)
           path = tpl.short_identifier.delete_prefix('app/').delete_suffix('.html.erb')
 
-          instrument :side_loaded_assets, identifier: tpl.identifier, asset_types: [] do |payload|
+          ActiveSupport::Notifications.instrument :side_loaded_assets, identifier: tpl.identifier,
+                                                                       asset_types: [] do |payload|
             side_load_javascript path, view, payload
             side_load_stylesheet path, view, payload
           end
