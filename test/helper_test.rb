@@ -49,7 +49,7 @@ class HelperTest < ActionView::TestCase
     exp = '<link rel="stylesheet" media="screen" ' \
           'href="/assets/bootstrap-c38deda30895059837cf.css" />'
     assert_equal exp, stylesheet_pack_tag('bootstrap.css')
-    assert_equal exp, stylesheet_pack_tag('bootstrap')
+    assert_nil stylesheet_pack_tag('bootstrap')
   end
 
   def test_stylesheet_pack_tag_with_manifest

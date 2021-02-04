@@ -50,12 +50,20 @@ module Frails::Helper
   def stylesheet_pack_tag(*names, **options)
     return if Rails.env.test?
 
+    @included_stylesheets ||= []
+
     soft_lookup = options.delete(:soft_lookup) { false }
     sources = sources_from_manifest_entries(names, :stylesheet, manifest: options.delete(:manifest),
                                                                 soft_lookup: soft_lookup)
 
+    # Make sure that we don't include an asset that has already been included.
+    sources -= @included_stylesheets
     sources.compact!
-    stylesheet_link_tag(*sources, **options)
+
+    # Concatenate the sources to be included to those already included.
+    @included_stylesheets.concat sources
+
+    sources.empty? ? nil : stylesheet_link_tag(*sources, **options)
   end
 
   def image_pack_tag(name, **options)
