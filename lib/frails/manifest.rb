@@ -4,6 +4,7 @@ require 'open-uri'
 
 class Frails::Manifest
   class MissingManifestError < StandardError; end
+
   class MissingEntryError < StandardError; end
 
   attr_reader :manifest_path
@@ -62,7 +63,7 @@ class Frails::Manifest
   private
 
     def read_source(path)
-      return Rails.public_path.join(path.gsub(%r{^\/}, '')).read unless Frails.dev_server.running?
+      return Rails.public_path.join(path.gsub(%r{^/}, '')).read unless Frails.dev_server.running?
 
       begin
         URI.open("http://#{Frails.dev_server.host_with_port}#{path}").read
