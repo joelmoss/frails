@@ -16,7 +16,7 @@ namespace :frails do
     puts 'Compiling Webpack...'
 
     ENV['RAILS_ENV'] ||= 'development'
-    stdout, sterr, status = Open3.capture3({}, "yarn webpack --env #{ENV['RAILS_ENV']}")
+    stdout, sterr, status = Open3.capture3({}, "yarn webpack --mode #{ENV['RAILS_ENV']}")
 
     if sterr == '' && status.success?
       puts 'Frails successfully compiled 🎉'
