@@ -96,7 +96,7 @@ class Frails::Component::Renderer < ActionView::PartialRenderer
 
     # rubocop:disable Metrics/AbcSize
     def build_ident(local_name)
-      hash_digest = Digest::MD5.hexdigest("#{stylesheet_path}+#{local_name}")[0, 6]
+      hash_digest = Digest::MD5.hexdigest("#{stylesheet_path}\x00#{local_name}")[0, 6]
 
       return "#{local_name}-#{hash_digest}" unless Frails.dev_server.running?
 

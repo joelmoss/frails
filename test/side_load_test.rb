@@ -71,7 +71,7 @@ class SideLoadTest < ActionDispatch::IntegrationTest
       assert_select 'style:nth(1)', text: "body {\n  color: red;\n}\n"
       assert_select 'style:nth(2)', text: ".title-e792c6 {\n  font-size: 20px;\n}\n"
     end
-    assert_select 'h1.title-e792c6:nth(1)', 'title1'
-    assert_select 'h1.title-e792c6:nth(2)', 'title2'
+    assert_select 'h1.title-afcba4:nth(1)', 'title1'
+    assert_select 'h1.title-afcba4:nth(2)', 'title2'
   end
 end

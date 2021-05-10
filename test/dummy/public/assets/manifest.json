@@ -14,15 +14,21 @@
   "views/layouts/application.js": "/assets/views/layouts/application-26f6510bf15bc4da.js",
   "entrypoints": {
     "views/layouts/application": {
-      "js": ["/assets/views/layouts/application-26f6510bf15bc4da.js"],
-      "css": ["/assets/views/layouts/application-26f6510bf15bc4da.css"]
+      "assets": {
+        "js": ["/assets/views/layouts/application-26f6510bf15bc4da.js"],
+        "css": ["/assets/views/layouts/application-26f6510bf15bc4da.css"]
+      }
     },
     "components/template_with_css/index": {
-      "css": ["/assets/components/template_with_css/index.css"]
+      "assets": {
+        "css": ["/assets/components/template_with_css/index.css"]
+      }
     },
     "components/react/index": {
-      "js": ["/assets/runtime.js", "/assets/components/react/index.chunk.js"],
-      "css": ["/assets/components/react/index.chunk.css"]
+      "assets": {
+        "js": ["/assets/runtime.js", "/assets/components/react/index.chunk.js"],
+        "css": ["/assets/components/react/index.chunk.css"]
+      }
     }
   }
 }

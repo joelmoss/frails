@@ -35,7 +35,7 @@ class Frails::Manifest
     manifest_pack_name = manifest_name(name, manifest_pack_type)
 
     # Lookup the pack in the entrypoints of the manifest
-    find('entrypoints')[manifest_pack_name][manifest_pack_type]
+    find('entrypoints')[manifest_pack_name]['assets'][manifest_pack_type]
   rescue NoMethodError
     # Lookup a single instance of the pack.
     find full_pack_name(name, type)

@@ -7,7 +7,7 @@ class ComponentIntegrationTest < ActionDispatch::IntegrationTest
     get '/components/template_with_css'
 
     assert_select 'div', count: 2, text: 'template_with_css'
-    assert_select 'span.description-3c07c9', count: 2, text: 'description'
+    assert_select 'span.description-53e9bf', count: 2, text: 'description'
     assert_select "style[data-href='/assets/components/template_with_css/index.css']",
                   count: 1, text: "div {\n  color: red;\n}\n"
   end
